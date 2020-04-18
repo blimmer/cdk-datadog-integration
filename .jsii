@@ -7,6 +7,8 @@
     "url": "https://benlimmer.com/consulting"
   },
   "dependencies": {
+    "@aws-cdk/aws-cloudformation": "^1.33.0",
+    "@aws-cdk/aws-s3": "^1.33.0",
     "@aws-cdk/aws-secretsmanager": "^1.33.0",
     "@aws-cdk/core": "1.33.0"
   },
@@ -33,6 +35,31 @@
         "python": {
           "distName": "aws-cdk.assets",
           "module": "aws_cdk.assets"
+        }
+      }
+    },
+    "@aws-cdk/aws-cloudformation": {
+      "targets": {
+        "dotnet": {
+          "assemblyOriginatorKeyFile": "../../key.snk",
+          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
+          "namespace": "Amazon.CDK.AWS.CloudFormation",
+          "packageId": "Amazon.CDK.AWS.CloudFormation",
+          "signAssembly": true
+        },
+        "java": {
+          "maven": {
+            "artifactId": "cloudformation",
+            "groupId": "software.amazon.awscdk"
+          },
+          "package": "software.amazon.awscdk.services.cloudformation"
+        },
+        "js": {
+          "npm": "@aws-cdk/aws-cloudformation"
+        },
+        "python": {
+          "distName": "aws-cdk.aws-cloudformation",
+          "module": "aws_cdk.aws_cloudformation"
         }
       }
     },
@@ -311,6 +338,31 @@
         }
       }
     },
+    "@aws-cdk/aws-sns": {
+      "targets": {
+        "dotnet": {
+          "assemblyOriginatorKeyFile": "../../key.snk",
+          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
+          "namespace": "Amazon.CDK.AWS.SNS",
+          "packageId": "Amazon.CDK.AWS.SNS",
+          "signAssembly": true
+        },
+        "java": {
+          "maven": {
+            "artifactId": "sns",
+            "groupId": "software.amazon.awscdk"
+          },
+          "package": "software.amazon.awscdk.services.sns"
+        },
+        "js": {
+          "npm": "@aws-cdk/aws-sns"
+        },
+        "python": {
+          "distName": "aws-cdk.aws-sns",
+          "module": "aws_cdk.aws_sns"
+        }
+      }
+    },
     "@aws-cdk/aws-sqs": {
       "targets": {
         "dotnet": {
@@ -550,7 +602,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 16
+        "line": 23
       },
       "name": "DatadogIntegrationStack"
     },
@@ -564,7 +616,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 5
+        "line": 9
       },
       "name": "DatadogIntegrationStackConfig",
       "properties": [
@@ -573,7 +625,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 6
+            "line": 10
           },
           "name": "apiKey",
           "type": {
@@ -585,7 +637,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 7
+            "line": 11
           },
           "name": "externalId",
           "type": {
@@ -597,7 +649,38 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 10
+            "line": 17
+          },
+          "name": "cloudtrails",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "@aws-cdk/aws-s3.Bucket"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 18
+          },
+          "name": "forwarderName",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 14
           },
           "name": "iamRoleName",
           "optional": true,
@@ -610,7 +693,25 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 11
+            "line": 16
+          },
+          "name": "logArchives",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "@aws-cdk/aws-s3.Bucket"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 15
           },
           "name": "permissions",
           "optional": true,
@@ -623,7 +724,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 9
+            "line": 13
           },
           "name": "site",
           "optional": true,
@@ -635,5 +736,5 @@
     }
   },
   "version": "0.1.0",
-  "fingerprint": "0D9tPt6smG5Saf0QlHoNdhEwvBuKQ9LGSvmlxSVcbL0="
+  "fingerprint": "wt+clS79LkvWNnWMhJ6SiKzCMLzaVLeMYwNyZF1xIt0="
 }
