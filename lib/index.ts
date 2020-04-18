@@ -24,13 +24,13 @@ export interface DatadogIntegrationConfig {
   readonly cloudTrails?: s3.Bucket[] | undefined;
 }
 
-const DATADOG_AWS_ACCOUNT_ID = "464622532012"; // DO NOT CHANGE!
-
 export interface DatadogIntegrationStackConfig
   extends DatadogIntegrationConfig,
     cdk.StackProps {}
 
 export class DatadogIntegrationStack extends cdk.Stack {
+  private DATADOG_AWS_ACCOUNT_ID = "464622532012"; // DO NOT CHANGE!
+
   constructor(
     scope: cdk.Construct,
     id: string,
@@ -70,7 +70,7 @@ export class DatadogIntegrationStack extends cdk.Stack {
           IAMRoleName: props.iamRoleName,
           LogArchives: bucketsToString(props.logArchives),
           CloudTrails: bucketsToString(props.cloudTrails),
-          DdAWSAccountId: DATADOG_AWS_ACCOUNT_ID,
+          DdAWSAccountId: this.DATADOG_AWS_ACCOUNT_ID,
         },
       }
     );
