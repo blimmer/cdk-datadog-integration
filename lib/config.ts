@@ -8,35 +8,38 @@ export interface DatadogIntegrationConfig {
   readonly site?: string;
   readonly iamRoleName?: string;
   readonly permissions?: DatadogPermissionsLevel;
-  readonly logArchives?: s3.Bucket[] | undefined;
-  readonly cloudTrails?: s3.Bucket[] | undefined;
   readonly forwarderName?: string;
   readonly installDatadogPolicyMacro?: boolean;
+
+  readonly logArchives?: s3.Bucket[] | undefined;
+  readonly cloudTrails?: s3.Bucket[] | undefined;
 }
 type DatadogPermissionsLevel = "Full" | "Core";
 
-const CONFIG_DEFAULTS: Complete<Omit<
-  DatadogIntegrationConfig,
-  "apiKey" | "externalId"
->> = Object.freeze({
+type DatadogIntegrationDefaults = Required<
+  Pick<
+    DatadogIntegrationConfig,
+    | "site"
+    | "iamRoleName"
+    | "permissions"
+    | "forwarderName"
+    | "installDatadogPolicyMacro"
+  >
+>;
+
+const CONFIG_DEFAULTS: DatadogIntegrationDefaults = Object.freeze({
   site: "datadoghq.com",
   iamRoleName: "DatadogIntegrationRole",
   permissions: "Full",
-  logArchives: undefined,
-  cloudTrails: undefined,
   forwarderName: "DatadogForwarder",
   installDatadogPolicyMacro: true,
 });
 
+export type DatadogIntegrationConfigWithDefaults = DatadogIntegrationConfig &
+  DatadogIntegrationDefaults;
+
 export function applyDefaultsToConfig(
   config: DatadogIntegrationConfig
-): Complete<DatadogIntegrationConfig> {
+): DatadogIntegrationConfigWithDefaults {
   return Object.assign({}, CONFIG_DEFAULTS, config);
 }
-
-// Make all optional types required
-export type Complete<T> = {
-  [P in keyof Required<T>]: Pick<T, P> extends Required<Pick<T, P>>
-    ? T[P]
-    : T[P] | undefined;
-};

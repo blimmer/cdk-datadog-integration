@@ -4,7 +4,7 @@ import * as cfn from "@aws-cdk/aws-cloudformation";
 import {
   DatadogIntegrationConfig,
   applyDefaultsToConfig,
-  Complete,
+  DatadogIntegrationConfigWithDefaults,
 } from "./config";
 
 // const DATADOG_AWS_ACCOUNT_ID = "464622532012"; // DO NOT CHANGE!
@@ -34,7 +34,7 @@ export class DatadogIntegrationStack extends cdk.Stack {
   }
 
   private createIntegrationRole(
-    props: Complete<DatadogIntegrationConfig>,
+    props: DatadogIntegrationConfigWithDefaults,
     policyMacroStack: cfn.CfnStack
   ): cfn.CfnStack {
     const integrationRoleStack = new cfn.CfnStack(
