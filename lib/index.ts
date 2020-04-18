@@ -84,5 +84,17 @@ export class DatadogIntegrationStack extends cdk.Stack {
     return integrationRoleStack;
   }
 
-  private createForwarderStack(props: DatadogIntegrationConfigWithDefaults) {}
+  private createForwarderStack(
+    props: DatadogIntegrationConfigWithDefaults
+  ): cfn.CfnStack {
+    return new cfn.CfnStack(this, "ForwarderStack", {
+      templateUrl: `https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/${props.forwarderVersion}.yaml`,
+      parameters: {
+        DdApiKey: "USE_ARN",
+        DdApiKeySecretArn: props.apiKey.secretArn,
+        DdSite: props.site,
+        FunctionName: props.forwarderName,
+      },
+    });
+  }
 }
