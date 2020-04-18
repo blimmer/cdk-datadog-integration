@@ -11,3 +11,6 @@ cdk.out
 # Parcel build directories
 .cache
 .build
+
+# JSII Builds
+dist

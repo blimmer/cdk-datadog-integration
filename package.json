@@ -1,12 +1,24 @@
 {
   "name": "cdk-datadog-integration",
   "version": "0.1.0",
-  "bin": {
-    "cdk-datadog-integration": "bin/cdk-datadog-integration.js"
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "Apache-2.0",
+  "repository": {
+    "url": "https://github.com/blimmer/cdk-datadog-integration.git",
+    "type": "git"
   },
+  "author": {
+    "name": "Ben Limmer",
+    "url": "https://benlimmer.com/consulting"
+  },
+  "keywords": [
+    "cdk"
+  ],
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
+    "build": "jsii",
+    "build:watch": "jsii -w",
+    "package": "jsii-pacmak",
     "test": "jest",
     "cdk": "cdk"
   },
@@ -17,6 +29,8 @@
     "aws-cdk": "1.33.0",
     "husky": "^4.2.5",
     "jest": "^25.3.0",
+    "jsii": "^1.3.1",
+    "jsii-pacmak": "^1.3.1",
     "prettier": "^2.0.4",
     "pretty-quick": "^2.0.1",
     "ts-jest": "^25.3.1",
@@ -24,12 +38,34 @@
     "typescript": "~3.7.2"
   },
   "dependencies": {
-    "@aws-cdk/core": "1.33.0",
-    "source-map-support": "^0.5.16"
+    "@aws-cdk/core": "1.33.0"
+  },
+  "peerDependencies": {
+    "@aws-cdk/core": "1.33.0"
   },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "python": {
+        "distName": "cdk-datadog-integration",
+        "module": "cdk_datadog_integration"
+      },
+      "java": {
+        "package": "com.benlimmer.cdkdatadogintegration",
+        "maven": {
+          "groupId": "com.benlimmer",
+          "artifactId": "cdk-datadog-integration"
+        }
+      },
+      "dotnet": {
+        "namespace": "BenLimmer.CdkDatadogIntegration",
+        "packageId": "BenLimmer.CdkDatadogIntegration"
+      }
     }
   }
 }
