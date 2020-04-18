@@ -7,6 +7,7 @@ type DatadogIntegrationDefaults = Required<
     | "iamRoleName"
     | "permissions"
     | "forwarderName"
+    | "forwarderVersion"
     | "installDatadogPolicyMacro"
   >
 >;
@@ -16,6 +17,7 @@ const CONFIG_DEFAULTS: DatadogIntegrationDefaults = Object.freeze({
   iamRoleName: "DatadogIntegrationRole",
   permissions: "Full",
   forwarderName: "DatadogForwarder",
+  forwarderVersion: "latest",
   installDatadogPolicyMacro: true,
 });
 

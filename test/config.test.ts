@@ -97,6 +97,27 @@ describe("applyDefaultsToConfig", () => {
       );
     });
   });
+  describe("forwarderVersion", () => {
+    it("defaults to latest", () => {
+      const config: DatadogIntegrationConfig = {
+        apiKey,
+        externalId: "a-fake-external-id",
+      };
+      const configWithDefaults = applyDefaultsToConfig(config);
+
+      expect(configWithDefaults.forwarderVersion).toEqual("latest");
+    });
+    it("can be overridden", () => {
+      const config: DatadogIntegrationConfig = {
+        apiKey,
+        externalId: "a-fake-external-id",
+        forwarderVersion: "3.8.0",
+      };
+      const configWithDefaults = applyDefaultsToConfig(config);
+
+      expect(configWithDefaults.forwarderVersion).toEqual("3.8.0");
+    });
+  });
   describe("installDatadogPolicyMacro", () => {
     it("defaults to true", () => {
       const config: DatadogIntegrationConfig = {

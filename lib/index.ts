@@ -18,6 +18,7 @@ export interface DatadogIntegrationConfig {
   readonly iamRoleName?: string;
   readonly permissions?: DatadogPermissionsLevel;
   readonly forwarderName?: string;
+  readonly forwarderVersion?: string;
   readonly installDatadogPolicyMacro?: boolean;
 
   readonly logArchives?: s3.Bucket[] | undefined;
@@ -45,6 +46,7 @@ export class DatadogIntegrationStack extends cdk.Stack {
     }
 
     this.createIntegrationRole(propsWithDefaults, policyMacroStack);
+    this.createForwarderStack(propsWithDefaults);
   }
 
   private createPolicyMacroStack(): cfn.CfnStack {
@@ -81,4 +83,6 @@ export class DatadogIntegrationStack extends cdk.Stack {
 
     return integrationRoleStack;
   }
+
+  private createForwarderStack(props: DatadogIntegrationConfigWithDefaults) {}
 }
