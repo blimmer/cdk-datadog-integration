@@ -1,3 +1,4 @@
+import "source-map-support/register";
 import * as cdk from "@aws-cdk/core";
 
 export class CdkDatadogIntegrationStack extends cdk.Stack {
