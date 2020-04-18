@@ -573,6 +573,144 @@
     }
   },
   "types": {
+    "cdk-datadog-integration.DatadogIntegrationConfig": {
+      "assembly": "cdk-datadog-integration",
+      "datatype": true,
+      "fqn": "cdk-datadog-integration.DatadogIntegrationConfig",
+      "kind": "interface",
+      "locationInModule": {
+        "filename": "lib/index.ts",
+        "line": 13
+      },
+      "name": "DatadogIntegrationConfig",
+      "properties": [
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 14
+          },
+          "name": "apiKey",
+          "type": {
+            "fqn": "@aws-cdk/aws-secretsmanager.ISecret"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 15
+          },
+          "name": "externalId",
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 24
+          },
+          "name": "cloudTrails",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "@aws-cdk/aws-s3.Bucket"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 20
+          },
+          "name": "forwarderName",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 18
+          },
+          "name": "iamRoleName",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 21
+          },
+          "name": "installDatadogPolicyMacro",
+          "optional": true,
+          "type": {
+            "primitive": "boolean"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 23
+          },
+          "name": "logArchives",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "fqn": "@aws-cdk/aws-s3.Bucket"
+              },
+              "kind": "array"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 19
+          },
+          "name": "permissions",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 17
+          },
+          "name": "site",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        }
+      ]
+    },
     "cdk-datadog-integration.DatadogIntegrationStack": {
       "assembly": "cdk-datadog-integration",
       "base": "@aws-cdk/core.Stack",
@@ -602,7 +740,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 23
+        "line": 33
       },
       "name": "DatadogIntegrationStack"
     },
@@ -611,130 +749,17 @@
       "datatype": true,
       "fqn": "cdk-datadog-integration.DatadogIntegrationStackConfig",
       "interfaces": [
+        "cdk-datadog-integration.DatadogIntegrationConfig",
         "@aws-cdk/core.StackProps"
       ],
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 9
+        "line": 29
       },
-      "name": "DatadogIntegrationStackConfig",
-      "properties": [
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 10
-          },
-          "name": "apiKey",
-          "type": {
-            "fqn": "@aws-cdk/aws-secretsmanager.ISecret"
-          }
-        },
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 11
-          },
-          "name": "externalId",
-          "type": {
-            "primitive": "string"
-          }
-        },
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 17
-          },
-          "name": "cloudtrails",
-          "optional": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "fqn": "@aws-cdk/aws-s3.Bucket"
-              },
-              "kind": "array"
-            }
-          }
-        },
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 18
-          },
-          "name": "forwarderName",
-          "optional": true,
-          "type": {
-            "primitive": "string"
-          }
-        },
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 14
-          },
-          "name": "iamRoleName",
-          "optional": true,
-          "type": {
-            "primitive": "string"
-          }
-        },
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 16
-          },
-          "name": "logArchives",
-          "optional": true,
-          "type": {
-            "collection": {
-              "elementtype": {
-                "fqn": "@aws-cdk/aws-s3.Bucket"
-              },
-              "kind": "array"
-            }
-          }
-        },
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 15
-          },
-          "name": "permissions",
-          "optional": true,
-          "type": {
-            "primitive": "string"
-          }
-        },
-        {
-          "abstract": true,
-          "immutable": true,
-          "locationInModule": {
-            "filename": "lib/index.ts",
-            "line": 13
-          },
-          "name": "site",
-          "optional": true,
-          "type": {
-            "primitive": "string"
-          }
-        }
-      ]
+      "name": "DatadogIntegrationStackConfig"
     }
   },
   "version": "0.1.0",
-  "fingerprint": "wt+clS79LkvWNnWMhJ6SiKzCMLzaVLeMYwNyZF1xIt0="
+  "fingerprint": "oOPXz7Tn6BABXwngbaYwvMU6/zl6+Eg6XxZrTaKCTS0="
 }

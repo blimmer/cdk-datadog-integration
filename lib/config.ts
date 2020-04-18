@@ -1,20 +1,4 @@
-import * as secrets from "@aws-cdk/aws-secretsmanager";
-import * as s3 from "@aws-cdk/aws-s3";
-
-export interface DatadogIntegrationConfig {
-  readonly apiKey: secrets.ISecret;
-  readonly externalId: string;
-
-  readonly site?: string;
-  readonly iamRoleName?: string;
-  readonly permissions?: DatadogPermissionsLevel;
-  readonly forwarderName?: string;
-  readonly installDatadogPolicyMacro?: boolean;
-
-  readonly logArchives?: s3.Bucket[] | undefined;
-  readonly cloudTrails?: s3.Bucket[] | undefined;
-}
-type DatadogPermissionsLevel = "Full" | "Core";
+import { DatadogIntegrationConfig } from ".";
 
 type DatadogIntegrationDefaults = Required<
   Pick<
