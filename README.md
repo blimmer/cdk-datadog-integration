@@ -1,14 +1,7 @@
-# Welcome to your CDK TypeScript project!
+# AWS Cloud Development Kit (CDK) Datadog Integration
 
-This is a blank project for TypeScript development with CDK.
+This construct makes it easy to integrate your AWS account with Datadog. It is currently
+a work in progress, so beware if you're using it in production.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
-
-## Useful commands
-
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+Check out the [1.0.0 Milestone](https://github.com/blimmer/cdk-datadog-integration/milestone/1)
+for details on what's left.
