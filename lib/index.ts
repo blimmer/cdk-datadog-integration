@@ -6,8 +6,9 @@ import {
   applyDefaultsToConfig,
   DatadogIntegrationConfigWithDefaults,
 } from "./config";
+import { bucketsToString } from "./util";
 
-// const DATADOG_AWS_ACCOUNT_ID = "464622532012"; // DO NOT CHANGE!
+const DATADOG_AWS_ACCOUNT_ID = "464622532012"; // DO NOT CHANGE!
 
 export interface DatadogIntegrationStackConfig
   extends DatadogIntegrationConfig,
@@ -22,7 +23,11 @@ export class DatadogIntegrationStack extends cdk.Stack {
     super(scope, id, props);
     const propsWithDefaults = applyDefaultsToConfig(props);
 
-    const policyMacroStack = this.createPolicyMacroStack();
+    let policyMacroStack: cfn.CfnStack | undefined;
+    if (propsWithDefaults.installDatadogPolicyMacro) {
+      policyMacroStack = this.createPolicyMacroStack();
+    }
+
     this.createIntegrationRole(propsWithDefaults, policyMacroStack);
   }
 
@@ -35,7 +40,7 @@ export class DatadogIntegrationStack extends cdk.Stack {
 
   private createIntegrationRole(
     props: DatadogIntegrationConfigWithDefaults,
-    policyMacroStack: cfn.CfnStack
+    policyMacroStack?: cfn.CfnStack
   ): cfn.CfnStack {
     const integrationRoleStack = new cfn.CfnStack(
       this,
@@ -46,10 +51,18 @@ export class DatadogIntegrationStack extends cdk.Stack {
         parameters: {
           ExternalId: props.externalId,
           Permissions: props.permissions.toString(),
+          IAMRoleName: props.iamRoleName,
+          LogArchives: bucketsToString(props.logArchives),
+          CloudTrails: bucketsToString(props.cloudTrails),
+          DdAWSAccountId: DATADOG_AWS_ACCOUNT_ID,
         },
       }
     );
-    integrationRoleStack.addDependsOn(policyMacroStack);
+
+    if (policyMacroStack) {
+      integrationRoleStack.addDependsOn(policyMacroStack);
+    }
+
     return integrationRoleStack;
   }
 }
