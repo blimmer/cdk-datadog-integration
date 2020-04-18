@@ -4,12 +4,12 @@ import {
   MatchStyle,
 } from "@aws-cdk/assert";
 import * as cdk from "@aws-cdk/core";
-import CdkDatadogIntegration = require("./index");
+import CdkDatadogIntegration = require("../lib/index");
 
 test("Empty Stack", () => {
   const app = new cdk.App();
   // WHEN
-  const stack = new CdkDatadogIntegration.CdkDatadogIntegrationStack(
+  const stack = new CdkDatadogIntegration.DatadogIntegrationStack(
     app,
     "MyTestStack"
   );
