@@ -545,7 +545,7 @@
   "license": "Apache-2.0",
   "name": "cdk-datadog-integration",
   "readme": {
-    "markdown": "# Welcome to your CDK TypeScript project!\n\nThis is a blank project for TypeScript development with CDK.\n\nThe `cdk.json` file tells the CDK Toolkit how to execute your app.\n\n## Useful commands\n\n * `npm run build`   compile typescript to js\n * `npm run watch`   watch for changes and compile\n * `npm run test`    perform the jest unit tests\n * `cdk deploy`      deploy this stack to your default AWS account/region\n * `cdk diff`        compare deployed stack with current state\n * `cdk synth`       emits the synthesized CloudFormation template\n"
+    "markdown": "# AWS Cloud Development Kit (CDK) Datadog Integration\n\nThis construct makes it easy to integrate your AWS account with Datadog. It is currently\na work in progress, so beware if you're using it in production.\n\nCheck out the [1.0.0 Milestone](https://github.com/blimmer/cdk-datadog-integration/milestone/1)\nfor details on what's left.\n"
   },
   "repository": {
     "type": "git",
@@ -613,7 +613,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 24
+            "line": 25
           },
           "name": "cloudTrails",
           "optional": true,
@@ -644,6 +644,19 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
+            "line": 21
+          },
+          "name": "forwarderVersion",
+          "optional": true,
+          "type": {
+            "primitive": "string"
+          }
+        },
+        {
+          "abstract": true,
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
             "line": 18
           },
           "name": "iamRoleName",
@@ -657,7 +670,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 21
+            "line": 22
           },
           "name": "installDatadogPolicyMacro",
           "optional": true,
@@ -670,7 +683,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 23
+            "line": 24
           },
           "name": "logArchives",
           "optional": true,
@@ -740,7 +753,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 33
+        "line": 32
       },
       "name": "DatadogIntegrationStack"
     },
@@ -755,11 +768,11 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 29
+        "line": 28
       },
       "name": "DatadogIntegrationStackConfig"
     }
   },
   "version": "0.1.0",
-  "fingerprint": "oOPXz7Tn6BABXwngbaYwvMU6/zl6+Eg6XxZrTaKCTS0="
+  "fingerprint": "rVbtGbjJxqAKeKWpGWmpkgWYD8jHZvqYfHsgu9sWENo="
 }
