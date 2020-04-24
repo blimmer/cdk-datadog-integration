@@ -353,5 +353,54 @@ describe("DatadogIntegrationStack", () => {
         })
       );
     });
+
+    it("allows passing additional, arbitrary parameters", () => {
+      const datadogStack = new DatadogIntegrationStack(stack, "DatadogStack", {
+        apiKey: secret,
+        externalId: "not-a-real-id",
+        additionalForwarderParams: {
+          Foo: "bar",
+        },
+      });
+
+      expectCDK(datadogStack).to(
+        haveResource("AWS::CloudFormation::Stack", {
+          TemplateURL:
+            "https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/latest.yaml",
+          Parameters: {
+            DdApiKey: "USE_ARN",
+            DdApiKeySecretArn: {
+              "Fn::ImportValue": "Stack:OutputRefSecretA720EF05",
+            },
+            DdSite: "datadoghq.com",
+            FunctionName: "DatadogForwarder",
+            Foo: "bar", // the sub-assert
+          },
+        })
+      );
+    });
+
+    it("allows additional parameters to override parameters set other props", () => {
+      const datadogStack = new DatadogIntegrationStack(stack, "DatadogStack", {
+        apiKey: secret,
+        externalId: "not-a-real-id",
+        additionalForwarderParams: {
+          DdApiKeySecretArn: "some-hardcoded-thing",
+        },
+      });
+
+      expectCDK(datadogStack).to(
+        haveResource("AWS::CloudFormation::Stack", {
+          TemplateURL:
+            "https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/latest.yaml",
+          Parameters: {
+            DdApiKey: "USE_ARN",
+            DdApiKeySecretArn: "some-hardcoded-thing", // the sub-assert
+            DdSite: "datadoghq.com",
+            FunctionName: "DatadogForwarder",
+          },
+        })
+      );
+    });
   });
 });

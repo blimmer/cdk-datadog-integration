@@ -23,6 +23,10 @@ export interface DatadogIntegrationConfig {
 
   readonly logArchives?: s3.Bucket[] | undefined;
   readonly cloudTrails?: s3.Bucket[] | undefined;
+
+  readonly additionalForwarderParams?: {
+    [key: string]: string;
+  };
 }
 
 export interface DatadogIntegrationStackConfig
@@ -89,12 +93,15 @@ export class DatadogIntegrationStack extends cdk.Stack {
   ): cfn.CfnStack {
     return new cfn.CfnStack(this, "ForwarderStack", {
       templateUrl: `https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/${props.forwarderVersion}.yaml`,
-      parameters: {
-        DdApiKey: "USE_ARN",
-        DdApiKeySecretArn: props.apiKey.secretArn,
-        DdSite: props.site,
-        FunctionName: props.forwarderName,
-      },
+      parameters: Object.assign(
+        {
+          DdApiKey: "USE_ARN",
+          DdApiKeySecretArn: props.apiKey.secretArn,
+          DdSite: props.site,
+          FunctionName: props.forwarderName,
+        },
+        { ...props.additionalForwarderParams }
+      ),
     });
   }
 }
