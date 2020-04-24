@@ -14,3 +14,6 @@ cdk.out
 
 # JSII Builds
 dist
+
+# Code coverage
+coverage
