@@ -23,6 +23,14 @@ export interface DatadogIntegrationConfig {
 
   readonly logArchives?: s3.Bucket[] | undefined;
   readonly cloudTrails?: s3.Bucket[] | undefined;
+
+  readonly additionalForwarderParams?: {
+    [key: string]: string;
+  };
+
+  readonly additionalIntegrationRoleParams?: {
+    [key: string]: string;
+  };
 }
 
 export interface DatadogIntegrationStackConfig
@@ -66,14 +74,17 @@ export class DatadogIntegrationStack extends cdk.Stack {
       {
         templateUrl:
           "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
-        parameters: {
-          ExternalId: props.externalId,
-          Permissions: props.permissions.toString(),
-          IAMRoleName: props.iamRoleName,
-          LogArchives: bucketsToString(props.logArchives),
-          CloudTrails: bucketsToString(props.cloudTrails),
-          DdAWSAccountId: this.DATADOG_AWS_ACCOUNT_ID,
-        },
+        parameters: Object.assign(
+          {
+            ExternalId: props.externalId,
+            Permissions: props.permissions.toString(),
+            IAMRoleName: props.iamRoleName,
+            LogArchives: bucketsToString(props.logArchives),
+            CloudTrails: bucketsToString(props.cloudTrails),
+            DdAWSAccountId: this.DATADOG_AWS_ACCOUNT_ID,
+          },
+          { ...props.additionalIntegrationRoleParams }
+        ),
       }
     );
 
@@ -89,12 +100,15 @@ export class DatadogIntegrationStack extends cdk.Stack {
   ): cfn.CfnStack {
     return new cfn.CfnStack(this, "ForwarderStack", {
       templateUrl: `https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/${props.forwarderVersion}.yaml`,
-      parameters: {
-        DdApiKey: "USE_ARN",
-        DdApiKeySecretArn: props.apiKey.secretArn,
-        DdSite: props.site,
-        FunctionName: props.forwarderName,
-      },
+      parameters: Object.assign(
+        {
+          DdApiKey: "USE_ARN",
+          DdApiKeySecretArn: props.apiKey.secretArn,
+          DdSite: props.site,
+          FunctionName: props.forwarderName,
+        },
+        { ...props.additionalForwarderParams }
+      ),
     });
   }
 }
