@@ -27,6 +27,10 @@ export interface DatadogIntegrationConfig {
   readonly additionalForwarderParams?: {
     [key: string]: string;
   };
+
+  readonly additionalIntegrationRoleParams?: {
+    [key: string]: string;
+  };
 }
 
 export interface DatadogIntegrationStackConfig
@@ -70,14 +74,17 @@ export class DatadogIntegrationStack extends cdk.Stack {
       {
         templateUrl:
           "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
-        parameters: {
-          ExternalId: props.externalId,
-          Permissions: props.permissions.toString(),
-          IAMRoleName: props.iamRoleName,
-          LogArchives: bucketsToString(props.logArchives),
-          CloudTrails: bucketsToString(props.cloudTrails),
-          DdAWSAccountId: this.DATADOG_AWS_ACCOUNT_ID,
-        },
+        parameters: Object.assign(
+          {
+            ExternalId: props.externalId,
+            Permissions: props.permissions.toString(),
+            IAMRoleName: props.iamRoleName,
+            LogArchives: bucketsToString(props.logArchives),
+            CloudTrails: bucketsToString(props.cloudTrails),
+            DdAWSAccountId: this.DATADOG_AWS_ACCOUNT_ID,
+          },
+          { ...props.additionalIntegrationRoleParams }
+        ),
       }
     );
 
