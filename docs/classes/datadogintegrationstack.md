@@ -83,7 +83,7 @@
 
 *Overrides void*
 
-*Defined in [lib/index.ts:118](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/index.ts#L118)*
+*Defined in [lib/index.ts:118](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L118)*
 
 **Parameters:**
 
@@ -101,7 +101,7 @@ Name | Type |
 
 • **DATADOG_AWS_ACCOUNT_ID**: *string* = "464622532012"
 
-*Defined in [lib/index.ts:118](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/index.ts#L118)*
+*Defined in [lib/index.ts:118](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L118)*
 
 ___
 
@@ -572,7 +572,7 @@ ___
 
 ▸ **createForwarderStack**(`props`: [DatadogIntegrationConfigWithDefaults](../README.md#datadogintegrationconfigwithdefaults)): *CfnStack*
 
-*Defined in [lib/index.ts:175](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/index.ts#L175)*
+*Defined in [lib/index.ts:175](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L175)*
 
 **Parameters:**
 
@@ -588,7 +588,7 @@ ___
 
 ▸ **createIntegrationRole**(`props`: [DatadogIntegrationConfigWithDefaults](../README.md#datadogintegrationconfigwithdefaults), `policyMacroStack?`: cfn.CfnStack): *CfnStack*
 
-*Defined in [lib/index.ts:144](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/index.ts#L144)*
+*Defined in [lib/index.ts:144](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L144)*
 
 **Parameters:**
 
@@ -605,7 +605,7 @@ ___
 
 ▸ **createPolicyMacroStack**(): *CfnStack*
 
-*Defined in [lib/index.ts:137](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/index.ts#L137)*
+*Defined in [lib/index.ts:137](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L137)*
 
 **Returns:** *CfnStack*
 

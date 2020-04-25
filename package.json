@@ -21,7 +21,7 @@
     "package": "jsii-pacmak",
     "test": "jest",
     "cdk": "cdk",
-    "docs": "typedoc --plugin typedoc-plugin-markdown --mode file --readme none --excludeNotExported"
+    "docs": "typedoc --plugin typedoc-plugin-markdown --mode file --readme none --gitRevision master --excludeNotExported"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.35.0",

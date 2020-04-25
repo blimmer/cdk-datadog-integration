@@ -34,7 +34,7 @@
 
 Ƭ **DatadogIntegrationConfigWithDefaults**: *[DatadogIntegrationConfig](interfaces/datadogintegrationconfig.md) & [DatadogIntegrationDefaults](README.md#datadogintegrationdefaults)*
 
-*Defined in [lib/config.ts:24](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/config.ts#L24)*
+*Defined in [lib/config.ts:24](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/config.ts#L24)*
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 Ƭ **DatadogIntegrationDefaults**: *Required‹Pick‹[DatadogIntegrationConfig](interfaces/datadogintegrationconfig.md), "site" | "iamRoleName" | "permissions" | "forwarderName" | "forwarderVersion" | "installDatadogPolicyMacro"››*
 
-*Defined in [lib/config.ts:3](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/config.ts#L3)*
+*Defined in [lib/config.ts:3](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/config.ts#L3)*
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 Ƭ **DatadogPermissionsLevel**: *"Full" | "Core"*
 
-*Defined in [lib/index.ts:12](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/index.ts#L12)*
+*Defined in [lib/index.ts:12](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L12)*
 
 ## Variables
 
@@ -65,7 +65,7 @@ ___
   installDatadogPolicyMacro: true,
 })
 
-*Defined in [lib/config.ts:15](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/config.ts#L15)*
+*Defined in [lib/config.ts:15](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/config.ts#L15)*
 
 ## Functions
 
@@ -73,7 +73,7 @@ ___
 
 ▸ **applyDefaultsToConfig**(`config`: [DatadogIntegrationConfig](interfaces/datadogintegrationconfig.md)): *[DatadogIntegrationConfigWithDefaults](README.md#datadogintegrationconfigwithdefaults)*
 
-*Defined in [lib/config.ts:27](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/config.ts#L27)*
+*Defined in [lib/config.ts:27](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/config.ts#L27)*
 
 **Parameters:**
 
@@ -89,7 +89,7 @@ ___
 
 ▸ **bucketsToString**(`buckets?`: Bucket[]): *string*
 
-*Defined in [lib/util.ts:3](https://github.com/blimmer/cdk-datadog-integration/blob/7fe7271/lib/util.ts#L3)*
+*Defined in [lib/util.ts:3](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/util.ts#L3)*
 
 **Parameters:**
 
