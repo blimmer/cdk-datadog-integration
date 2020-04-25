@@ -9,31 +9,35 @@ using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
 
 1. Install the package
 
-```console
-npm i --save cdk-datadog-integration
-```
+   ```console
+   npm i --save cdk-datadog-integration
+   ```
+
+   Or via [pypi](https://pypi.org/project/cdk-datadog-integration/),
+   [NuGet](https://www.nuget.org/packages/BenLimmer.CdkDatadogIntegration/), or
+   [GitHub Packages](https://github.com/blimmer/cdk-datadog-integration/packages).
 
 1. Import the stack and pass the required parameters.
 
-```ts
-import * as cdk from "@aws-cdk/core";
-import * as secrets from "@aws-cdk/aws-secretsmanager";
-import { DatadogIntegrationStack } from "cdk-datadog-integration";
+   ```ts
+   import * as cdk from "@aws-cdk/core";
+   import * as secrets from "@aws-cdk/aws-secretsmanager";
+   import { DatadogIntegrationStack } from "cdk-datadog-integration";
 
-const app = new cdk.App();
-new DatadogIntegrationStack(app, "DatadogIntegration", {
-  // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services
-  externalId: "",
+   const app = new cdk.App();
+   new DatadogIntegrationStack(app, "DatadogIntegration", {
+     // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services
+     externalId: "",
 
-  // Create or lookup a `Secret` that contains your Datadog API Key
-  // Get your API key here: https://app.datadoghq.com/account/settings#api
-  apiKey: secrets.Secret.fromSecretArn(
-    app,
-    "DatadogApiKey",
-    "arn:aws:secretsmanager:<your region>:<your account>:secret:<your secret name>"
-  ),
-});
-```
+     // Create or lookup a `Secret` that contains your Datadog API Key
+     // Get your API key here: https://app.datadoghq.com/account/settings#api
+     apiKey: secrets.Secret.fromSecretArn(
+       app,
+       "DatadogApiKey",
+       "arn:aws:secretsmanager:<your region>:<your account>:secret:<your secret name>"
+     ),
+   });
+   ```
 
 ## Configuration
 
