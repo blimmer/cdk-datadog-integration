@@ -21,7 +21,8 @@
     "package": "jsii-pacmak",
     "test": "jest",
     "cdk": "cdk",
-    "docs": "typedoc --plugin typedoc-plugin-markdown --mode file --readme none --gitRevision master --excludeNotExported"
+    "docs": "typedoc --plugin typedoc-plugin-markdown --mode file --readme none --gitRevision master --excludeNotExported",
+    "changelog": "docker run -it --rm -v \"$(pwd)\":/usr/local/src/your-app ferrarimarco/github-changelog-generator -u blimmer -p cdk-datadog-integration --future-release"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.35.0",
