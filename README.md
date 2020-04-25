@@ -40,3 +40,11 @@ new DatadogIntegrationStack(app, "DatadogIntegration", {
 Use `DatadogIntegrationConfig` to set additional configuration parameters.
 Check out [docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)
 for more details on what's available.
+
+## Contributing
+
+PRs are welcome!
+
+### Releasing
+
+To release, use `npm version` and push the tag.
