@@ -7,10 +7,10 @@
     "url": "https://benlimmer.com/consulting"
   },
   "dependencies": {
-    "@aws-cdk/aws-cloudformation": "^1.33.0",
-    "@aws-cdk/aws-s3": "^1.33.0",
-    "@aws-cdk/aws-secretsmanager": "^1.33.0",
-    "@aws-cdk/core": "1.33.0"
+    "@aws-cdk/aws-cloudformation": "^1.35.0",
+    "@aws-cdk/aws-s3": "^1.35.0",
+    "@aws-cdk/aws-secretsmanager": "^1.35.0",
+    "@aws-cdk/core": "1.35.0"
   },
   "dependencyClosure": {
     "@aws-cdk/assets": {
@@ -538,14 +538,14 @@
   },
   "description": "cdk-datadog-integration",
   "homepage": "https://github.com/blimmer/cdk-datadog-integration.git",
-  "jsiiVersion": "1.3.1 (build 7d00ddc)",
+  "jsiiVersion": "1.4.1 (build 0b09d7b)",
   "keywords": [
     "cdk"
   ],
   "license": "Apache-2.0",
   "name": "cdk-datadog-integration",
   "readme": {
-    "markdown": "# AWS Cloud Development Kit (CDK) Datadog Integration\n\nThis construct makes it easy to integrate your AWS account with Datadog. It is currently\na work in progress, so beware if you're using it in production.\n\nCheck out the [1.0.0 Milestone](https://github.com/blimmer/cdk-datadog-integration/milestone/1)\nfor details on what's left.\n"
+    "markdown": "# AWS Cloud Development Kit (CDK) Datadog Integration\n\nThis construct makes it easy to integrate your AWS account with Datadog. It\ncreates nested stacks based on the official\n[Datadog Cloudformation templates](https://github.com/DataDog/cloudformation-template/blob/master/aws/main.yaml)\nusing [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).\n\n## Basic Usage\n\n1. Install the package\n\n```console\nnpm i --save cdk-datadog-integration\n```\n\n1. Import the stack and pass the required parameters.\n\n```ts\nimport * as cdk from \"@aws-cdk/core\";\nimport * as secrets from \"@aws-cdk/aws-secretsmanager\";\nimport { DatadogIntegrationStack } from \"cdk-datadog-integration\";\n\nconst app = new cdk.App();\nnew DatadogIntegrationStack(app, \"DatadogIntegration\", {\n  // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services\n  externalId: \"\",\n\n  // Create or lookup a `Secret` that contains your Datadog API Key\n  // Get your API key here: https://app.datadoghq.com/account/settings#api\n  apiKey: secrets.Secret.fromSecretArn(\n    app,\n    \"DatadogApiKey\",\n    \"arn:aws:secretsmanager:<your region>:<your account>:secret:<your secret name>\"\n  ),\n});\n```\n\n## Configuration\n\nUse `DatadogIntegrationConfig` to set additional configuration parameters.\nCheck out [docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)\nfor more details on what's available.\n"
   },
   "repository": {
     "type": "git",
@@ -586,10 +586,13 @@
       "properties": [
         {
           "abstract": true,
+          "docs": {
+            "summary": "API key for the Datadog account (find at https://app.datadoghq.com/account/settings#api)."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 14
+            "line": 17
           },
           "name": "apiKey",
           "type": {
@@ -598,10 +601,13 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "summary": "External ID for the Datadog role (generate at https://app.datadoghq.com/account/settings#integrations/amazon-web-services)."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 15
+            "line": 23
           },
           "name": "externalId",
           "type": {
@@ -610,10 +616,58 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "remarks": "Use this construct if you need to specify a template variable not\nyet exposed through this library.\n\nSee https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/latest.yaml\nfor the latest parameters.",
+            "summary": "Additional parameters to pass through to the underlying Forwarder CloudFormation template."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 25
+            "line": 96
+          },
+          "name": "additionalForwarderParams",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Use this construct if you need to specify a template variable not\nyet exposed through this library.\n\nSee https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml\nfor the latest parameters.",
+            "summary": "Additional parameters to pass through to the underlying Integration Role CloudFormation template."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 108
+          },
+          "name": "additionalIntegrationRoleParams",
+          "optional": true,
+          "type": {
+            "collection": {
+              "elementtype": {
+                "primitive": "string"
+              },
+              "kind": "map"
+            }
+          }
+        },
+        {
+          "abstract": true,
+          "docs": {
+            "remarks": "Permissions will be automatically\nadded to the Datadog integration IAM role.\nhttps://docs.datadoghq.com/integrations/amazon_cloudtrail",
+            "summary": "S3 buckets for Datadog CloudTrail integration."
+          },
+          "immutable": true,
+          "locationInModule": {
+            "filename": "lib/index.ts",
+            "line": 86
           },
           "name": "cloudTrails",
           "optional": true,
@@ -628,10 +682,15 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "default": "DatadogForwarder",
+            "remarks": "DO NOT change when updating an existing\nCloudFormation stack, otherwise the current forwarder function will be replaced and\nall the triggers will be lost.",
+            "summary": "The Datadog Forwarder Lambda function name."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 20
+            "line": 55
           },
           "name": "forwarderName",
           "optional": true,
@@ -641,10 +700,15 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "default": "latest",
+            "remarks": "See\nhttps://github.com/DataDog/datadog-serverless-functions/releases. Pass this\nparameter as a version string, e.g., '3.9.0'",
+            "summary": "Specify a version of the forwarder to use."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 21
+            "line": 64
           },
           "name": "forwarderVersion",
           "optional": true,
@@ -654,10 +718,14 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "default": "DatadogIntegrationRole",
+            "summary": "Customize the name of IAM role for Datadog AWS integration."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 18
+            "line": 38
           },
           "name": "iamRoleName",
           "optional": true,
@@ -667,10 +735,14 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "default": "true",
+            "summary": "If you already deployed a stack using this template, set this parameter to false to skip the installation of the DatadogPolicy Macro again."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 22
+            "line": 72
           },
           "name": "installDatadogPolicyMacro",
           "optional": true,
@@ -680,10 +752,14 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "remarks": "Permissions will be automatically added to the Datadog integration IAM role.\nhttps://docs.datadoghq.com/logs/archives/rehydrating/?tab=awss",
+            "summary": "S3 paths to store log archives for log rehydration."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 24
+            "line": 79
           },
           "name": "logArchives",
           "optional": true,
@@ -698,10 +774,15 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "default": "Full",
+            "remarks": "Select \"Core\" to only grant Datadog read-only permissions (not recommended).",
+            "summary": "Customize the permission level for the Datadog IAM role."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 19
+            "line": 46
           },
           "name": "permissions",
           "optional": true,
@@ -711,10 +792,15 @@
         },
         {
           "abstract": true,
+          "docs": {
+            "default": "datadoghq.com",
+            "remarks": "For the Datadog EU site, set to datadoghq.eu",
+            "summary": "Define your Datadog Site to send data to."
+          },
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 17
+            "line": 31
           },
           "name": "site",
           "optional": true,
@@ -753,7 +839,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 32
+        "line": 117
       },
       "name": "DatadogIntegrationStack"
     },
@@ -768,11 +854,11 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 28
+        "line": 113
       },
       "name": "DatadogIntegrationStackConfig"
     }
   },
   "version": "0.1.0",
-  "fingerprint": "rVbtGbjJxqAKeKWpGWmpkgWYD8jHZvqYfHsgu9sWENo="
+  "fingerprint": "d4Ulm4EUSBkxzFPQ/AuuIfMBFs5AAbRLL1MDmV3I0DA="
 }
