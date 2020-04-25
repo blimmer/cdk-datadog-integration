@@ -20,7 +20,8 @@
     "build:watch": "jsii -w",
     "package": "jsii-pacmak",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "docs": "typedoc --plugin typedoc-plugin-markdown --mode file --readme none --gitRevision master --excludeNotExported"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.35.0",
@@ -35,6 +36,8 @@
     "pretty-quick": "^2.0.1",
     "ts-jest": "^25.4.0",
     "ts-node": "^8.9.0",
+    "typedoc": "^0.17.4",
+    "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "~3.8.3"
   },
   "dependencies": {
@@ -51,7 +54,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "pretty-quick --staged && npm run docs && git add docs"
     }
   },
   "jsii": {
