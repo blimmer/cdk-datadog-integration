@@ -45,6 +45,12 @@ Use `DatadogIntegrationConfig` to set additional configuration parameters.
 Check out [docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)
 for more details on what's available.
 
+## Author
+
+This package is created and maintained by [Ben Limmer](https://www.linkedin.com/in/blimmer/), a
+[freelance architect and consultant](https://benlimmer.com/consulting/). I love helping businesses of all sizes solve
+their hardest technology problems. Let's [connect](https://benlimmer.com/consulting/contact/) if I can be of help!
+
 ## Contributing
 
 PRs are welcome!
