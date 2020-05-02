@@ -41,15 +41,27 @@ using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
 
 ## Configuration
 
-Use `DatadogIntegrationConfig` to set additional configuration parameters.
-Check out [docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)
+Use `DatadogIntegrationConfig` to set additional configuration parameters. Check
+out
+[docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)
 for more details on what's available.
+
+## How it Works
+
+This module uses the
+[`CfnStack` CDK Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnStack.html)
+to import the three CloudFormation stacks referenced by the
+[main Datadog CloudFormation template](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnStack.html).
+By referencing the Datadog-provided templates, you can be confident that the
+integration works exactly as Datadog intends.
 
 ## Author
 
-This package is created and maintained by [Ben Limmer](https://www.linkedin.com/in/blimmer/), a
-[freelance architect and consultant](https://benlimmer.com/consulting/). I love helping businesses of all sizes solve
-their hardest technology problems. Let's [connect](https://benlimmer.com/consulting/contact/) if I can be of help!
+This package is created and maintained by
+[Ben Limmer](https://www.linkedin.com/in/blimmer/), a
+[freelance architect and consultant](https://benlimmer.com/consulting/). I love
+helping businesses of all sizes solve their hardest technology problems. Let's
+[connect](https://benlimmer.com/consulting/contact/) if I can be of help!
 
 ## Contributing
 
