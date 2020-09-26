@@ -10,7 +10,8 @@
     "@aws-cdk/aws-cloudformation": "^1.35.0",
     "@aws-cdk/aws-s3": "^1.35.0",
     "@aws-cdk/aws-secretsmanager": "^1.35.0",
-    "@aws-cdk/core": "1.35.0"
+    "@aws-cdk/core": "^1.35.0",
+    "constructs": "^3.0.4"
   },
   "dependencyClosure": {
     "@aws-cdk/assets": {
@@ -35,6 +36,56 @@
         "python": {
           "distName": "aws-cdk.assets",
           "module": "aws_cdk.assets"
+        }
+      }
+    },
+    "@aws-cdk/aws-applicationautoscaling": {
+      "targets": {
+        "dotnet": {
+          "assemblyOriginatorKeyFile": "../../key.snk",
+          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
+          "namespace": "Amazon.CDK.AWS.ApplicationAutoScaling",
+          "packageId": "Amazon.CDK.AWS.ApplicationAutoScaling",
+          "signAssembly": true
+        },
+        "java": {
+          "maven": {
+            "artifactId": "applicationautoscaling",
+            "groupId": "software.amazon.awscdk"
+          },
+          "package": "software.amazon.awscdk.services.applicationautoscaling"
+        },
+        "js": {
+          "npm": "@aws-cdk/aws-applicationautoscaling"
+        },
+        "python": {
+          "distName": "aws-cdk.aws-applicationautoscaling",
+          "module": "aws_cdk.aws_applicationautoscaling"
+        }
+      }
+    },
+    "@aws-cdk/aws-autoscaling-common": {
+      "targets": {
+        "dotnet": {
+          "assemblyOriginatorKeyFile": "../../key.snk",
+          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
+          "namespace": "Amazon.CDK.AWS.AutoScaling.Common",
+          "packageId": "Amazon.CDK.AWS.AutoScaling.Common",
+          "signAssembly": true
+        },
+        "java": {
+          "maven": {
+            "artifactId": "autoscaling-common",
+            "groupId": "software.amazon.awscdk"
+          },
+          "package": "software.amazon.awscdk.services.autoscaling.common"
+        },
+        "js": {
+          "npm": "@aws-cdk/aws-autoscaling-common"
+        },
+        "python": {
+          "distName": "aws-cdk.aws-autoscaling-common",
+          "module": "aws_cdk.aws_autoscaling_common"
         }
       }
     },
@@ -88,6 +139,31 @@
         }
       }
     },
+    "@aws-cdk/aws-codeguruprofiler": {
+      "targets": {
+        "dotnet": {
+          "assemblyOriginatorKeyFile": "../../key.snk",
+          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
+          "namespace": "Amazon.CDK.AWS.CodeGuruProfiler",
+          "packageId": "Amazon.CDK.AWS.CodeGuruProfiler",
+          "signAssembly": true
+        },
+        "java": {
+          "maven": {
+            "artifactId": "codeguruprofiler",
+            "groupId": "software.amazon.awscdk"
+          },
+          "package": "software.amazon.awscdk.services.codeguruprofiler"
+        },
+        "js": {
+          "npm": "@aws-cdk/aws-codeguruprofiler"
+        },
+        "python": {
+          "distName": "aws-cdk.aws-codeguruprofiler",
+          "module": "aws_cdk.aws_codeguruprofiler"
+        }
+      }
+    },
     "@aws-cdk/aws-ec2": {
       "targets": {
         "dotnet": {
@@ -110,6 +186,31 @@
         "python": {
           "distName": "aws-cdk.aws-ec2",
           "module": "aws_cdk.aws_ec2"
+        }
+      }
+    },
+    "@aws-cdk/aws-efs": {
+      "targets": {
+        "dotnet": {
+          "assemblyOriginatorKeyFile": "../../key.snk",
+          "iconUrl": "https://raw.githubusercontent.com/aws/aws-cdk/master/logo/default-256-dark.png",
+          "namespace": "Amazon.CDK.AWS.EFS",
+          "packageId": "Amazon.CDK.AWS.EFS",
+          "signAssembly": true
+        },
+        "java": {
+          "maven": {
+            "artifactId": "efs",
+            "groupId": "software.amazon.awscdk"
+          },
+          "package": "software.amazon.awscdk.services.efs"
+        },
+        "js": {
+          "npm": "@aws-cdk/aws-efs"
+        },
+        "python": {
+          "distName": "aws-cdk.aws-efs",
+          "module": "aws_cdk.aws_efs"
         }
       }
     },
@@ -538,14 +639,14 @@
   },
   "description": "cdk-datadog-integration",
   "homepage": "https://github.com/blimmer/cdk-datadog-integration.git",
-  "jsiiVersion": "1.4.1 (build 0b09d7b)",
+  "jsiiVersion": "1.12.0 (build 5ddc9f2)",
   "keywords": [
     "cdk"
   ],
   "license": "Apache-2.0",
   "name": "cdk-datadog-integration",
   "readme": {
-    "markdown": "# AWS Cloud Development Kit (CDK) Datadog Integration\n\nThis construct makes it easy to integrate your AWS account with Datadog. It\ncreates nested stacks based on the official\n[Datadog Cloudformation templates](https://github.com/DataDog/cloudformation-template/blob/master/aws/main.yaml)\nusing [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).\n\n## Basic Usage\n\n1. Install the package\n\n```console\nnpm i --save cdk-datadog-integration\n```\n\n1. Import the stack and pass the required parameters.\n\n```ts\nimport * as cdk from \"@aws-cdk/core\";\nimport * as secrets from \"@aws-cdk/aws-secretsmanager\";\nimport { DatadogIntegrationStack } from \"cdk-datadog-integration\";\n\nconst app = new cdk.App();\nnew DatadogIntegrationStack(app, \"DatadogIntegration\", {\n  // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services\n  externalId: \"\",\n\n  // Create or lookup a `Secret` that contains your Datadog API Key\n  // Get your API key here: https://app.datadoghq.com/account/settings#api\n  apiKey: secrets.Secret.fromSecretArn(\n    app,\n    \"DatadogApiKey\",\n    \"arn:aws:secretsmanager:<your region>:<your account>:secret:<your secret name>\"\n  ),\n});\n```\n\n## Configuration\n\nUse `DatadogIntegrationConfig` to set additional configuration parameters.\nCheck out [docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)\nfor more details on what's available.\n"
+    "markdown": "# AWS Cloud Development Kit (CDK) Datadog Integration\n\nThis construct makes it easy to integrate your AWS account with Datadog. It\ncreates nested stacks based on the official\n[Datadog Cloudformation templates](https://github.com/DataDog/cloudformation-template/blob/master/aws/main.yaml)\nusing [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).\n\n## Basic Usage\n\n1. Install the package\n\n   ```console\n   npm i --save cdk-datadog-integration\n   ```\n\n   Or via [pypi](https://pypi.org/project/cdk-datadog-integration/),\n   [NuGet](https://www.nuget.org/packages/BenLimmer.CdkDatadogIntegration/), or\n   [GitHub Packages](https://github.com/blimmer/cdk-datadog-integration/packages).\n\n1. Import the stack and pass the required parameters.\n\n   ```ts\n   import * as cdk from \"@aws-cdk/core\";\n   import * as secrets from \"@aws-cdk/aws-secretsmanager\";\n   import { DatadogIntegrationStack } from \"cdk-datadog-integration\";\n\n   const app = new cdk.App();\n   new DatadogIntegrationStack(app, \"DatadogIntegration\", {\n     // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services\n     externalId: \"\",\n\n     // Create or lookup a `Secret` that contains your Datadog API Key\n     // Get your API key here: https://app.datadoghq.com/account/settings#api\n     apiKey: secrets.Secret.fromSecretArn(\n       app,\n       \"DatadogApiKey\",\n       \"arn:aws:secretsmanager:<your region>:<your account>:secret:<your secret name>\"\n     ),\n   });\n   ```\n\n## Configuration\n\nUse `DatadogIntegrationConfig` to set additional configuration parameters. Check\nout\n[docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)\nfor more details on what's available.\n\n## How it Works\n\nThis module uses the\n[`CfnStack` CDK Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnStack.html)\nto import the three CloudFormation stacks referenced by the\n[main Datadog CloudFormation template](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnStack.html).\nBy referencing the Datadog-provided templates, you can be confident that the\nintegration works exactly as Datadog intends.\n\n## Author\n\nThis package is created and maintained by\n[Ben Limmer](https://www.linkedin.com/in/blimmer/), a\n[freelance architect and consultant](https://benlimmer.com/consulting/). I love\nhelping businesses of all sizes solve their hardest technology problems. Let's\n[connect](https://benlimmer.com/consulting/contact/) if I can be of help!\n\n## Contributing\n\nPRs are welcome!\n\n### Releasing\n\nTo release, use `npm version` and push the tag.\n"
   },
   "repository": {
     "type": "git",
@@ -815,6 +916,10 @@
       "base": "@aws-cdk/core.Stack",
       "fqn": "cdk-datadog-integration.DatadogIntegrationStack",
       "initializer": {
+        "locationInModule": {
+          "filename": "lib/index.ts",
+          "line": 120
+        },
         "parameters": [
           {
             "name": "scope",
@@ -859,6 +964,6 @@
       "name": "DatadogIntegrationStackConfig"
     }
   },
-  "version": "0.1.0",
-  "fingerprint": "d4Ulm4EUSBkxzFPQ/AuuIfMBFs5AAbRLL1MDmV3I0DA="
+  "version": "1.0.1",
+  "fingerprint": "aAWnoPwK1I/zhra8FR0kWWgSLACzqXTynvK5MZwpjrM="
 }
