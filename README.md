@@ -46,6 +46,9 @@ out
 [docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)
 for more details on what's available.
 
+Additionally, a CDK `Construct` is exposed, should you want to add additional
+customizations vs. using the out-of-the-box `Stack`.
+
 ## How it Works
 
 This module uses the

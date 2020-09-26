@@ -7,10 +7,10 @@
     "url": "https://benlimmer.com/consulting"
   },
   "dependencies": {
-    "@aws-cdk/aws-cloudformation": "^1.35.0",
-    "@aws-cdk/aws-s3": "^1.35.0",
-    "@aws-cdk/aws-secretsmanager": "^1.35.0",
-    "@aws-cdk/core": "^1.35.0",
+    "@aws-cdk/aws-cloudformation": "^1.64.1",
+    "@aws-cdk/aws-s3": "^1.64.1",
+    "@aws-cdk/aws-secretsmanager": "^1.64.1",
+    "@aws-cdk/core": "^1.64.1",
     "constructs": "^3.0.4"
   },
   "dependencyClosure": {
@@ -674,6 +674,43 @@
     }
   },
   "types": {
+    "cdk-datadog-integration.DatadogIntegration": {
+      "assembly": "cdk-datadog-integration",
+      "base": "@aws-cdk/core.Construct",
+      "fqn": "cdk-datadog-integration.DatadogIntegration",
+      "initializer": {
+        "locationInModule": {
+          "filename": "lib/index.ts",
+          "line": 116
+        },
+        "parameters": [
+          {
+            "name": "scope",
+            "type": {
+              "fqn": "@aws-cdk/core.Construct"
+            }
+          },
+          {
+            "name": "id",
+            "type": {
+              "primitive": "string"
+            }
+          },
+          {
+            "name": "props",
+            "type": {
+              "fqn": "cdk-datadog-integration.DatadogIntegrationConfig"
+            }
+          }
+        ]
+      },
+      "kind": "class",
+      "locationInModule": {
+        "filename": "lib/index.ts",
+        "line": 113
+      },
+      "name": "DatadogIntegration"
+    },
     "cdk-datadog-integration.DatadogIntegrationConfig": {
       "assembly": "cdk-datadog-integration",
       "datatype": true,
@@ -918,7 +955,7 @@
       "initializer": {
         "locationInModule": {
           "filename": "lib/index.ts",
-          "line": 120
+          "line": 194
         },
         "parameters": [
           {
@@ -944,7 +981,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 117
+        "line": 193
       },
       "name": "DatadogIntegrationStack"
     },
@@ -959,11 +996,11 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 113
+        "line": 189
       },
       "name": "DatadogIntegrationStackConfig"
     }
   },
   "version": "1.0.1",
-  "fingerprint": "aAWnoPwK1I/zhra8FR0kWWgSLACzqXTynvK5MZwpjrM="
+  "fingerprint": "JAUMz/0x1juUBfSuFVw7SRqvashLGq04MDSQyckcb2k="
 }

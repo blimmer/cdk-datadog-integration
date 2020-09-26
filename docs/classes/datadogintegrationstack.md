@@ -22,7 +22,6 @@
 
 ### Properties
 
-* [DATADOG_AWS_ACCOUNT_ID](datadogintegrationstack.md#private-datadog_aws_account_id)
 * [account](datadogintegrationstack.md#readonly-account)
 * [artifactId](datadogintegrationstack.md#readonly-artifactid)
 * [environment](datadogintegrationstack.md#readonly-environment)
@@ -55,9 +54,6 @@
 * [addFileAsset](datadogintegrationstack.md#addfileasset)
 * [addTransform](datadogintegrationstack.md#addtransform)
 * [allocateLogicalId](datadogintegrationstack.md#protected-allocatelogicalid)
-* [createForwarderStack](datadogintegrationstack.md#private-createforwarderstack)
-* [createIntegrationRole](datadogintegrationstack.md#private-createintegrationrole)
-* [createPolicyMacroStack](datadogintegrationstack.md#private-createpolicymacrostack)
 * [formatArn](datadogintegrationstack.md#formatarn)
 * [getLogicalId](datadogintegrationstack.md#getlogicalid)
 * [onPrepare](datadogintegrationstack.md#protected-onprepare)
@@ -85,7 +81,7 @@
 
 *Overrides void*
 
-*Defined in [lib/index.ts:118](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L118)*
+*Defined in [lib/index.ts:193](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L193)*
 
 **Parameters:**
 
@@ -98,14 +94,6 @@ Name | Type |
 **Returns:** *[DatadogIntegrationStack](datadogintegrationstack.md)*
 
 ## Properties
-
-### `Private` DATADOG_AWS_ACCOUNT_ID
-
-• **DATADOG_AWS_ACCOUNT_ID**: *string* = "464622532012"
-
-*Defined in [lib/index.ts:118](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L118)*
-
-___
 
 ### `Readonly` account
 
@@ -189,7 +177,7 @@ ___
 
 • **node**: *ConstructNode*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[node](datadogintegrationstack.md#readonly-node)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[node](datadogintegration.md#readonly-node)*
 
 Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:52
 
@@ -608,49 +596,6 @@ Name | Type | Description |
 
 ___
 
-### `Private` createForwarderStack
-
-▸ **createForwarderStack**(`props`: [DatadogIntegrationConfigWithDefaults](../README.md#datadogintegrationconfigwithdefaults)): *CfnStack*
-
-*Defined in [lib/index.ts:175](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L175)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`props` | [DatadogIntegrationConfigWithDefaults](../README.md#datadogintegrationconfigwithdefaults) |
-
-**Returns:** *CfnStack*
-
-___
-
-### `Private` createIntegrationRole
-
-▸ **createIntegrationRole**(`props`: [DatadogIntegrationConfigWithDefaults](../README.md#datadogintegrationconfigwithdefaults), `policyMacroStack?`: cfn.CfnStack): *CfnStack*
-
-*Defined in [lib/index.ts:144](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L144)*
-
-**Parameters:**
-
-Name | Type |
------- | ------ |
-`props` | [DatadogIntegrationConfigWithDefaults](../README.md#datadogintegrationconfigwithdefaults) |
-`policyMacroStack?` | cfn.CfnStack |
-
-**Returns:** *CfnStack*
-
-___
-
-### `Private` createPolicyMacroStack
-
-▸ **createPolicyMacroStack**(): *CfnStack*
-
-*Defined in [lib/index.ts:137](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L137)*
-
-**Returns:** *CfnStack*
-
-___
-
 ###  formatArn
 
 ▸ **formatArn**(`components`: ArnComponents): *string*
@@ -718,7 +663,7 @@ ___
 
 ▸ **onPrepare**(): *void*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[onPrepare](datadogintegrationstack.md#protected-onprepare)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[onPrepare](datadogintegration.md#protected-onprepare)*
 
 *Overrides void*
 
@@ -741,7 +686,7 @@ ___
 
 ▸ **onSynthesize**(`session`: ISynthesisSession): *void*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[onSynthesize](datadogintegrationstack.md#protected-onsynthesize)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[onSynthesize](datadogintegration.md#protected-onsynthesize)*
 
 *Overrides void*
 
@@ -766,7 +711,7 @@ ___
 
 ▸ **onValidate**(): *string[]*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[onValidate](datadogintegrationstack.md#protected-onvalidate)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[onValidate](datadogintegration.md#protected-onvalidate)*
 
 *Overrides void*
 
@@ -835,7 +780,7 @@ ___
 
 ▸ **prepare**(): *void*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[prepare](datadogintegrationstack.md#protected-prepare)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[prepare](datadogintegration.md#protected-prepare)*
 
 Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:102
 
@@ -950,7 +895,7 @@ ___
 
 ▸ **synthesize**(`session`: ISynthesisSession): *void*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[synthesize](datadogintegrationstack.md#protected-synthesize)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[synthesize](datadogintegration.md#protected-synthesize)*
 
 Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:111
 
@@ -994,7 +939,7 @@ ___
 
 ▸ **toString**(): *string*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[toString](datadogintegrationstack.md#tostring)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[toString](datadogintegration.md#tostring)*
 
 Defined in node_modules/constructs/lib/construct.d.ts:237
 
@@ -1008,7 +953,7 @@ ___
 
 ▸ **validate**(): *string[]*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[validate](datadogintegrationstack.md#protected-validate)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[validate](datadogintegration.md#protected-validate)*
 
 Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:91
 
@@ -1027,7 +972,7 @@ ___
 
 ▸ **isConstruct**(`x`: any): *x is Construct*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[isConstruct](datadogintegrationstack.md#static-isconstruct)*
+*Inherited from [DatadogIntegration](datadogintegration.md).[isConstruct](datadogintegration.md#static-isconstruct)*
 
 Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:48
 

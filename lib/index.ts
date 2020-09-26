@@ -110,19 +110,15 @@ export interface DatadogIntegrationConfig {
   };
 }
 
-export interface DatadogIntegrationStackConfig
-  extends DatadogIntegrationConfig,
-    cdk.StackProps {}
-
-export class DatadogIntegrationStack extends cdk.Stack {
+export class DatadogIntegration extends cdk.Construct {
   private DATADOG_AWS_ACCOUNT_ID = "464622532012"; // DO NOT CHANGE!
 
   constructor(
     scope: cdk.Construct,
     id: string,
-    props: DatadogIntegrationStackConfig
+    props: DatadogIntegrationConfig
   ) {
-    super(scope, id, props);
+    super(scope, id);
     const propsWithDefaults = applyDefaultsToConfig(props);
 
     let policyMacroStack: cfn.CfnStack | undefined;
@@ -187,5 +183,20 @@ export class DatadogIntegrationStack extends cdk.Stack {
         { ...props.additionalForwarderParams }
       ),
     });
+  }
+}
+
+export interface DatadogIntegrationStackConfig
+  extends DatadogIntegrationConfig,
+    cdk.StackProps {}
+
+export class DatadogIntegrationStack extends cdk.Stack {
+  constructor(
+    scope: cdk.Construct,
+    id: string,
+    props: DatadogIntegrationStackConfig
+  ) {
+    super(scope, id, props);
+    new DatadogIntegration(this, id, props);
   }
 }
