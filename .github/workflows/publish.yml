@@ -49,5 +49,5 @@ jobs:
       - name: Publish to Maven GitHub
         uses: udondan/jsii-publish@v0.10.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
