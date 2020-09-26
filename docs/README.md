@@ -6,6 +6,7 @@
 
 ### Classes
 
+* [DatadogIntegration](classes/datadogintegration.md)
 * [DatadogIntegrationStack](classes/datadogintegrationstack.md)
 
 ### Interfaces
