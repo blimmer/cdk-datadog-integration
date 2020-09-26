@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/blimmer/cdk-datadog-integration/tree/HEAD)
+## [v1.1.0](https://github.com/blimmer/cdk-datadog-integration/tree/v1.1.0) (2020-09-26)
 
-[Full Changelog](https://github.com/blimmer/cdk-datadog-integration/compare/v1.0.1...HEAD)
+[Full Changelog](https://github.com/blimmer/cdk-datadog-integration/compare/v1.0.1...v1.1.0)
 
 **Closed issues:**
 
