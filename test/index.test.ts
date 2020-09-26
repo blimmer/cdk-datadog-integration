@@ -7,7 +7,8 @@ import { DatadogIntegrationStack } from "../lib/index";
 describe("DatadogIntegrationStack", () => {
   let stack: cdk.Stack, secret: secrets.ISecret;
   beforeEach(() => {
-    stack = new cdk.Stack();
+    const app = new cdk.App();
+    stack = new cdk.Stack(app, "Stack");
     secret = new secrets.Secret(stack, "Secret");
   });
 
@@ -80,7 +81,7 @@ describe("DatadogIntegrationStack", () => {
           Parameters: {
             DdApiKey: "USE_ARN", // this is specially supported by the forwarder template
             DdApiKeySecretArn: {
-              "Fn::ImportValue": "Stack:OutputRefSecretA720EF05",
+              "Fn::ImportValue": "Stack:ExportsOutputRefSecretA720EF052D953DED",
             },
             DdSite: "datadoghq.com",
             FunctionName: "DatadogForwarder",
@@ -154,7 +155,7 @@ describe("DatadogIntegrationStack", () => {
             Permissions: "Full",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: {
-              "Fn::ImportValue": "Stack:OutputRefBucket83908E77", // the sub-assert
+              "Fn::ImportValue": "Stack:ExportsOutputRefBucket83908E7781C90AC0", // the sub-assert
             },
             CloudTrails: "",
             DdAWSAccountId: "464622532012",
@@ -186,11 +187,13 @@ describe("DatadogIntegrationStack", () => {
                 "",
                 [
                   {
-                    "Fn::ImportValue": "Stack:OutputRefBucket12520700A",
+                    "Fn::ImportValue":
+                      "Stack:ExportsOutputRefBucket12520700A8CDAA090",
                   },
                   ",",
                   {
-                    "Fn::ImportValue": "Stack:OutputRefBucket25524B414",
+                    "Fn::ImportValue":
+                      "Stack:ExportsOutputRefBucket25524B414E77B0447",
                   },
                 ],
               ],
@@ -220,7 +223,7 @@ describe("DatadogIntegrationStack", () => {
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: "",
             CloudTrails: {
-              "Fn::ImportValue": "Stack:OutputRefBucket83908E77", // the sub-assert
+              "Fn::ImportValue": "Stack:ExportsOutputRefBucket83908E7781C90AC0", // the sub-assert
             },
             DdAWSAccountId: "464622532012",
           },
@@ -252,11 +255,13 @@ describe("DatadogIntegrationStack", () => {
                 "",
                 [
                   {
-                    "Fn::ImportValue": "Stack:OutputRefBucket12520700A",
+                    "Fn::ImportValue":
+                      "Stack:ExportsOutputRefBucket12520700A8CDAA090",
                   },
                   ",",
                   {
-                    "Fn::ImportValue": "Stack:OutputRefBucket25524B414",
+                    "Fn::ImportValue":
+                      "Stack:ExportsOutputRefBucket25524B414E77B0447",
                   },
                 ],
               ],
@@ -351,7 +356,7 @@ describe("DatadogIntegrationStack", () => {
           Parameters: {
             DdApiKey: "USE_ARN",
             DdApiKeySecretArn: {
-              "Fn::ImportValue": "Stack:OutputRefSecretA720EF05",
+              "Fn::ImportValue": "Stack:ExportsOutputRefSecretA720EF052D953DED",
             },
             DdSite: "datadoghq.eu", // the sub-assert
             FunctionName: "DatadogForwarder",
@@ -373,7 +378,7 @@ describe("DatadogIntegrationStack", () => {
           Parameters: {
             DdApiKey: "USE_ARN",
             DdApiKeySecretArn: {
-              "Fn::ImportValue": "Stack:OutputRefSecretA720EF05",
+              "Fn::ImportValue": "Stack:ExportsOutputRefSecretA720EF052D953DED",
             },
             DdSite: "datadoghq.com",
             FunctionName: "MyForwarder", // the sub-assert
@@ -396,7 +401,7 @@ describe("DatadogIntegrationStack", () => {
           Parameters: {
             DdApiKey: "USE_ARN",
             DdApiKeySecretArn: {
-              "Fn::ImportValue": "Stack:OutputRefSecretA720EF05",
+              "Fn::ImportValue": "Stack:ExportsOutputRefSecretA720EF052D953DED",
             },
             DdSite: "datadoghq.com",
             FunctionName: "DatadogForwarder",
@@ -421,7 +426,7 @@ describe("DatadogIntegrationStack", () => {
           Parameters: {
             DdApiKey: "USE_ARN",
             DdApiKeySecretArn: {
-              "Fn::ImportValue": "Stack:OutputRefSecretA720EF05",
+              "Fn::ImportValue": "Stack:ExportsOutputRefSecretA720EF052D953DED",
             },
             DdSite: "datadoghq.com",
             FunctionName: "DatadogForwarder",

@@ -23,15 +23,17 @@
 ### Properties
 
 * [DATADOG_AWS_ACCOUNT_ID](datadogintegrationstack.md#private-datadog_aws_account_id)
-* [account](datadogintegrationstack.md#account)
-* [artifactId](datadogintegrationstack.md#artifactid)
-* [environment](datadogintegrationstack.md#environment)
-* [nestedStackResource](datadogintegrationstack.md#optional-nestedstackresource)
-* [node](datadogintegrationstack.md#node)
-* [region](datadogintegrationstack.md#region)
-* [tags](datadogintegrationstack.md#tags)
-* [templateFile](datadogintegrationstack.md#templatefile)
-* [templateOptions](datadogintegrationstack.md#templateoptions)
+* [account](datadogintegrationstack.md#readonly-account)
+* [artifactId](datadogintegrationstack.md#readonly-artifactid)
+* [environment](datadogintegrationstack.md#readonly-environment)
+* [nestedStackResource](datadogintegrationstack.md#optional-readonly-nestedstackresource)
+* [node](datadogintegrationstack.md#readonly-node)
+* [region](datadogintegrationstack.md#readonly-region)
+* [synthesizer](datadogintegrationstack.md#readonly-synthesizer)
+* [tags](datadogintegrationstack.md#readonly-tags)
+* [templateFile](datadogintegrationstack.md#readonly-templatefile)
+* [templateOptions](datadogintegrationstack.md#readonly-templateoptions)
+* [terminationProtection](datadogintegrationstack.md#optional-readonly-terminationprotection)
 
 ### Accessors
 
@@ -105,13 +107,13 @@ Name | Type |
 
 ___
 
-###  account
+### `Readonly` account
 
 • **account**: *string*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[account](datadogintegrationstack.md#account)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[account](datadogintegrationstack.md#readonly-account)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:98
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:172
 
 The AWS account into which this stack will be deployed.
 
@@ -129,30 +131,30 @@ check that it is a concerete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.account)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **account-agnostic template**. In this case, your code should either
-fail (throw an error, emit a synth error using `node.addError`) or
+fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
 implement some other region-agnostic behavior.
 
 ___
 
-###  artifactId
+### `Readonly` artifactId
 
 • **artifactId**: *string*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[artifactId](datadogintegrationstack.md#artifactid)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[artifactId](datadogintegrationstack.md#readonly-artifactid)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:130
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:208
 
 The ID of the cloud assembly artifact for this stack.
 
 ___
 
-###  environment
+### `Readonly` environment
 
 • **environment**: *string*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[environment](datadogintegrationstack.md#environment)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[environment](datadogintegrationstack.md#readonly-environment)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:112
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:186
 
 The environment coordinates in which this stack is deployed. In the form
 `aws://account/region`. Use `stack.account` and `stack.region` to obtain
@@ -168,13 +170,13 @@ region/account-agnostic.
 
 ___
 
-### `Optional` nestedStackResource
+### `Optional` `Readonly` nestedStackResource
 
 • **nestedStackResource**? : *CfnResource*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[nestedStackResource](datadogintegrationstack.md#optional-nestedstackresource)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[nestedStackResource](datadogintegrationstack.md#optional-readonly-nestedstackresource)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:119
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:197
 
 If this is a nested stack, this represents its `AWS::CloudFormation::Stack`
 resource. `undefined` for top-level (non-nested) stacks.
@@ -183,11 +185,11 @@ resource. `undefined` for top-level (non-nested) stacks.
 
 ___
 
-###  node
+### `Readonly` node
 
 • **node**: *ConstructNode*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[node](datadogintegrationstack.md#node)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[node](datadogintegrationstack.md#readonly-node)*
 
 Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:52
 
@@ -195,13 +197,13 @@ The construct tree node associated with this construct.
 
 ___
 
-###  region
+### `Readonly` region
 
 • **region**: *string*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[region](datadogintegrationstack.md#region)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[region](datadogintegrationstack.md#readonly-region)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:77
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:151
 
 The AWS region into which this stack will be deployed (e.g. `us-west-2`).
 
@@ -219,30 +221,44 @@ check that it is a concerete value an not an unresolved token. If this
 value is an unresolved token (`Token.isUnresolved(stack.region)` returns
 `true`), this implies that the user wishes that this stack will synthesize
 into a **region-agnostic template**. In this case, your code should either
-fail (throw an error, emit a synth error using `node.addError`) or
+fail (throw an error, emit a synth error using `Annotations.of(construct).addError()`) or
 implement some other region-agnostic behavior.
 
 ___
 
-###  tags
+### `Readonly` synthesizer
+
+• **synthesizer**: *IStackSynthesizer*
+
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[synthesizer](datadogintegrationstack.md#readonly-synthesizer)*
+
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:214
+
+Synthesis method for this stack
+
+**`experimental`** 
+
+___
+
+### `Readonly` tags
 
 • **tags**: *TagManager*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[tags](datadogintegrationstack.md#tags)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[tags](datadogintegrationstack.md#readonly-tags)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:52
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:126
 
 Tags to be applied to the stack.
 
 ___
 
-###  templateFile
+### `Readonly` templateFile
 
 • **templateFile**: *string*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[templateFile](datadogintegrationstack.md#templatefile)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[templateFile](datadogintegrationstack.md#readonly-templatefile)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:126
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:204
 
 The name of the CloudFormation template file emitted to the output
 directory during synthesis.
@@ -251,15 +267,27 @@ directory during synthesis.
 
 ___
 
-###  templateOptions
+### `Readonly` templateOptions
 
 • **templateOptions**: *ITemplateOptions*
 
-*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[templateOptions](datadogintegrationstack.md#templateoptions)*
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[templateOptions](datadogintegrationstack.md#readonly-templateoptions)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:56
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:130
 
 Options for CloudFormation template (like version, transform, description).
+
+___
+
+### `Optional` `Readonly` terminationProtection
+
+• **terminationProtection**? : *undefined | false | true*
+
+*Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[terminationProtection](datadogintegrationstack.md#optional-readonly-terminationprotection)*
+
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:190
+
+Whether termination protection is enabled for this stack.
 
 ## Accessors
 
@@ -269,9 +297,9 @@ Options for CloudFormation template (like version, transform, description).
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[availabilityZones](datadogintegrationstack.md#availabilityzones)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:321
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:398
 
-Returnst the list of AZs that are availability in the AWS environment
+Returns the list of AZs that are available in the AWS environment
 (account/region) associated with this stack.
 
 If the stack is environment-agnostic (either account and/or region are
@@ -283,6 +311,8 @@ If they are not available in the context, returns a set of dummy values and
 reports them as missing, and let the CLI resolve them by calling EC2
 `DescribeAvailabilityZones` on the target environment.
 
+To specify a different strategy for selecting availability zones override this method.
+
 **Returns:** *string[]*
 
 ___
@@ -293,7 +323,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[dependencies](datadogintegrationstack.md#dependencies)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:215
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:290
 
 Return the stacks this stack depends on
 
@@ -307,7 +337,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[nested](datadogintegrationstack.md#nested)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:250
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:325
 
 Indicates if this is a nested stack, in which case `parentStack` will include a reference to it's parent.
 
@@ -321,7 +351,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[nestedStackParent](datadogintegrationstack.md#nestedstackparent)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:327
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:416
 
 If this is a nested stack, returns it's parent stack.
 
@@ -335,7 +365,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[notificationArns](datadogintegrationstack.md#notificationarns)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:246
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:321
 
 Returns the list of notification Amazon Resource Names (ARNs) for the current stack.
 
@@ -349,7 +379,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[parentStack](datadogintegrationstack.md#parentstack)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:333
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:422
 
 Returns the parent of a nested stack.
 
@@ -365,7 +395,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[partition](datadogintegrationstack.md#partition)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:232
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:307
 
 The partition in which this stack is defined
 
@@ -379,7 +409,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[stackId](datadogintegrationstack.md#stackid)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:242
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:317
 
 The ID of the stack
 
@@ -395,7 +425,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[stackName](datadogintegrationstack.md#stackname)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:228
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:303
 
 The concrete CloudFormation physical stack name.
 
@@ -418,7 +448,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[urlSuffix](datadogintegrationstack.md#urlsuffix)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:236
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:311
 
 The Amazon domain suffix for the region in which this stack is defined
 
@@ -432,7 +462,7 @@ The Amazon domain suffix for the region in which this stack is defined
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[addDependency](datadogintegrationstack.md#adddependency)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:211
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:286
 
 Add a dependency between this stack and another stack.
 
@@ -456,7 +486,12 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[addDockerImageAsset](datadogintegrationstack.md#adddockerimageasset)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:323
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:412
+
+Register a docker image asset on this Stack
+
+**`deprecated`** Use `stack.synthesizer.addDockerImageAsset()` if you are calling,
+and a different `IStackSynthesizer` class if you are implementing.
 
 **Parameters:**
 
@@ -474,7 +509,12 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[addFileAsset](datadogintegrationstack.md#addfileasset)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:322
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:405
+
+Register a file asset on this Stack
+
+**`deprecated`** Use `stack.synthesizer.addFileAsset()` if you are calling,
+and a different IStackSynthesizer class if you are implementing.
 
 **Parameters:**
 
@@ -492,7 +532,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[addTransform](datadogintegrationstack.md#addtransform)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:346
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:435
 
 Add a Transform to this stack. A Transform is a macro that AWS
 CloudFormation uses to process your template.
@@ -519,7 +559,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[allocateLogicalId](datadogintegrationstack.md#protected-allocatelogicalid)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:387
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:476
 
 Returns the naming scheme used to allocate logical IDs. By default, uses
 the `HashedAddressingScheme` but this method can be overridden to customize
@@ -617,7 +657,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[formatArn](datadogintegrationstack.md#formatarn)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:268
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:343
 
 Creates an ARN from components.
 
@@ -651,7 +691,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[getLogicalId](datadogintegrationstack.md#getlogicalid)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:204
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:279
 
 Allocates a stack-unique CloudFormation-compatible logical identity for a
 specific resource.
@@ -739,7 +779,7 @@ validation logic. It is called on all constructs before synthesis.
 
 **Returns:** *string[]*
 
-An array of validation error messages, or an empty array if there the construct is valid.
+An array of validation error messages, or an empty array if the construct is valid.
 
 ___
 
@@ -749,7 +789,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[parseArn](datadogintegrationstack.md#parsearn)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:307
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:382
 
 Given an ARN, parses it and returns components.
 
@@ -797,15 +837,16 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[prepare](datadogintegrationstack.md#protected-prepare)*
 
-*Overrides void*
+Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:102
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:395
+Perform final modifications before synthesis
 
-Prepare stack
+This method can be implemented by derived constructs in order to perform
+final changes before synthesis. prepare() will be called after child
+constructs have been prepared.
 
-Find all CloudFormation references and tell them we're consuming them.
-
-Find all dependencies as well and add the appropriate DependsOn fields.
+This is an advanced framework feature. Only use this if you
+understand the implications.
 
 **Returns:** *void*
 
@@ -817,7 +858,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[prepareCrossReference](datadogintegrationstack.md#protected-preparecrossreference)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:404
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:484
 
 Deprecated.
 
@@ -844,12 +885,12 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[renameLogicalId](datadogintegrationstack.md#renamelogicalid)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:188
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:263
 
 Rename a generated logical identities
 
 To modify the naming scheme strategy, extend the `Stack` class and
-override the `createNamingScheme` method.
+override the `allocateLogicalId` method.
 
 **Parameters:**
 
@@ -868,7 +909,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[reportMissingContext](datadogintegrationstack.md#reportmissingcontext)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:181
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:256
 
 Indicate that a context key was expected
 
@@ -891,7 +932,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[resolve](datadogintegrationstack.md#resolve)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:168
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:243
 
 Resolve a tokenized value in the context of the current stack.
 
@@ -911,15 +952,18 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[synthesize](datadogintegrationstack.md#protected-synthesize)*
 
-*Overrides void*
+Defined in node_modules/@aws-cdk/core/lib/construct-compat.d.ts:111
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:396
+Allows this construct to emit artifacts into the cloud assembly during synthesis.
+
+This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+as they participate in synthesizing the cloud assembly.
 
 **Parameters:**
 
-Name | Type |
------- | ------ |
-`session` | ISynthesisSession |
+Name | Type | Description |
+------ | ------ | ------ |
+`session` | ISynthesisSession | The synthesis session.  |
 
 **Returns:** *void*
 
@@ -931,7 +975,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[toJsonString](datadogintegrationstack.md#tojsonstring)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:172
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:247
 
 Convert an object, potentially containing tokens, to a JSON string
 
@@ -975,7 +1019,7 @@ validation logic. It is called on all constructs before synthesis.
 
 **Returns:** *string[]*
 
-An array of validation error messages, or an empty array if there the construct is valid.
+An array of validation error messages, or an empty array if the construct is valid.
 
 ___
 
@@ -1005,7 +1049,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[isStack](datadogintegrationstack.md#static-isstack)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:43
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:117
 
 Return whether the given object is a Stack.
 
@@ -1027,7 +1071,7 @@ ___
 
 *Inherited from [DatadogIntegrationStack](datadogintegrationstack.md).[of](datadogintegrationstack.md#static-of)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:48
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:122
 
 Looks up the first stack scope in which `construct` is defined. Fails if there is no stack up the tree.
 
