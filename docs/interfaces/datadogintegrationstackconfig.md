@@ -14,30 +14,32 @@
 
 ### Properties
 
-* [additionalForwarderParams](datadogintegrationstackconfig.md#optional-additionalforwarderparams)
-* [additionalIntegrationRoleParams](datadogintegrationstackconfig.md#optional-additionalintegrationroleparams)
-* [apiKey](datadogintegrationstackconfig.md#apikey)
-* [cloudTrails](datadogintegrationstackconfig.md#optional-cloudtrails)
-* [description](datadogintegrationstackconfig.md#optional-description)
-* [env](datadogintegrationstackconfig.md#optional-env)
-* [externalId](datadogintegrationstackconfig.md#externalid)
-* [forwarderName](datadogintegrationstackconfig.md#optional-forwardername)
-* [forwarderVersion](datadogintegrationstackconfig.md#optional-forwarderversion)
-* [iamRoleName](datadogintegrationstackconfig.md#optional-iamrolename)
-* [installDatadogPolicyMacro](datadogintegrationstackconfig.md#optional-installdatadogpolicymacro)
-* [logArchives](datadogintegrationstackconfig.md#optional-logarchives)
-* [permissions](datadogintegrationstackconfig.md#optional-permissions)
-* [site](datadogintegrationstackconfig.md#optional-site)
-* [stackName](datadogintegrationstackconfig.md#optional-stackname)
-* [tags](datadogintegrationstackconfig.md#optional-tags)
+* [additionalForwarderParams](datadogintegrationstackconfig.md#optional-readonly-additionalforwarderparams)
+* [additionalIntegrationRoleParams](datadogintegrationstackconfig.md#optional-readonly-additionalintegrationroleparams)
+* [apiKey](datadogintegrationstackconfig.md#readonly-apikey)
+* [cloudTrails](datadogintegrationstackconfig.md#optional-readonly-cloudtrails)
+* [description](datadogintegrationstackconfig.md#optional-readonly-description)
+* [env](datadogintegrationstackconfig.md#optional-readonly-env)
+* [externalId](datadogintegrationstackconfig.md#readonly-externalid)
+* [forwarderName](datadogintegrationstackconfig.md#optional-readonly-forwardername)
+* [forwarderVersion](datadogintegrationstackconfig.md#optional-readonly-forwarderversion)
+* [iamRoleName](datadogintegrationstackconfig.md#optional-readonly-iamrolename)
+* [installDatadogPolicyMacro](datadogintegrationstackconfig.md#optional-readonly-installdatadogpolicymacro)
+* [logArchives](datadogintegrationstackconfig.md#optional-readonly-logarchives)
+* [permissions](datadogintegrationstackconfig.md#optional-readonly-permissions)
+* [site](datadogintegrationstackconfig.md#optional-readonly-site)
+* [stackName](datadogintegrationstackconfig.md#optional-readonly-stackname)
+* [synthesizer](datadogintegrationstackconfig.md#optional-readonly-synthesizer)
+* [tags](datadogintegrationstackconfig.md#optional-readonly-tags)
+* [terminationProtection](datadogintegrationstackconfig.md#optional-readonly-terminationprotection)
 
 ## Properties
 
-### `Optional` additionalForwarderParams
+### `Optional` `Readonly` additionalForwarderParams
 
 • **additionalForwarderParams**? : *undefined | object*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[additionalForwarderParams](datadogintegrationconfig.md#optional-additionalforwarderparams)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[additionalForwarderParams](datadogintegrationconfig.md#optional-readonly-additionalforwarderparams)*
 
 *Defined in [lib/index.ts:96](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L96)*
 
@@ -50,11 +52,11 @@ for the latest parameters.
 
 ___
 
-### `Optional` additionalIntegrationRoleParams
+### `Optional` `Readonly` additionalIntegrationRoleParams
 
 • **additionalIntegrationRoleParams**? : *undefined | object*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[additionalIntegrationRoleParams](datadogintegrationconfig.md#optional-additionalintegrationroleparams)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[additionalIntegrationRoleParams](datadogintegrationconfig.md#optional-readonly-additionalintegrationroleparams)*
 
 *Defined in [lib/index.ts:108](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L108)*
 
@@ -67,11 +69,11 @@ for the latest parameters.
 
 ___
 
-###  apiKey
+### `Readonly` apiKey
 
 • **apiKey**: *ISecret*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[apiKey](datadogintegrationconfig.md#apikey)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[apiKey](datadogintegrationconfig.md#readonly-apikey)*
 
 *Defined in [lib/index.ts:17](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L17)*
 
@@ -79,11 +81,11 @@ API key for the Datadog account (find at https://app.datadoghq.com/account/setti
 
 ___
 
-### `Optional` cloudTrails
+### `Optional` `Readonly` cloudTrails
 
 • **cloudTrails**? : *Bucket[] | undefined*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[cloudTrails](datadogintegrationconfig.md#optional-cloudtrails)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[cloudTrails](datadogintegrationconfig.md#optional-readonly-cloudtrails)*
 
 *Defined in [lib/index.ts:86](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L86)*
 
@@ -93,13 +95,13 @@ https://docs.datadoghq.com/integrations/amazon_cloudtrail
 
 ___
 
-### `Optional` description
+### `Optional` `Readonly` description
 
 • **description**? : *undefined | string*
 
-*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[description](datadogintegrationstackconfig.md#optional-description)*
+*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[description](datadogintegrationstackconfig.md#optional-readonly-description)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:11
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:14
 
 A description of the stack.
 
@@ -107,26 +109,84 @@ A description of the stack.
 
 ___
 
-### `Optional` env
+### `Optional` `Readonly` env
 
 • **env**? : *Environment*
 
-*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[env](datadogintegrationstackconfig.md#optional-env)*
+*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[env](datadogintegrationstackconfig.md#optional-readonly-env)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:18
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:79
 
 The AWS environment (account/region) where this stack will be deployed.
 
-**`default`** - The `default-account` and `default-region` context parameters will be
-used. If they are undefined, it will not be possible to deploy the stack.
+Set the `region`/`account` fields of `env` to either a concrete value to
+select the indicated environment (recommended for production stacks), or to
+the values of environment variables
+`CDK_DEFAULT_REGION`/`CDK_DEFAULT_ACCOUNT` to let the target environment
+depend on the AWS credentials/configuration that the CDK CLI is executed
+under (recommended for development stacks).
+
+If the `Stack` is instantiated inside a `Stage`, any undefined
+`region`/`account` fields from `env` will default to the same field on the
+encompassing `Stage`, if configured there.
+
+If either `region` or `account` are not set nor inherited from `Stage`, the
+Stack will be considered "*environment-agnostic*"". Environment-agnostic
+stacks can be deployed to any environment but may not be able to take
+advantage of all features of the CDK. For example, they will not be able to
+use environmental context lookups such as `ec2.Vpc.fromLookup` and will not
+automatically translate Service Principals to the right format based on the
+environment's AWS partition, and other such enhancements.
+
+**`example`** 
+
+// Use a concrete account and region to deploy this stack to:
+// `.account` and `.region` will simply return these values.
+new MyStack(app, 'Stack1', {
+  env: {
+    account: '123456789012',
+    region: 'us-east-1'
+  },
+});
+
+// Use the CLI's current credentials to determine the target environment:
+// `.account` and `.region` will reflect the account+region the CLI
+// is configured to use (based on the user CLI credentials)
+new MyStack(app, 'Stack2', {
+  env: {
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION
+  },
+});
+
+// Define multiple stacks stage associated with an environment
+const myStage = new Stage(app, 'MyStage', {
+  env: {
+    account: '123456789012',
+    region: 'us-east-1'
+  }
+});
+
+// both of these stacks will use the stage's account/region:
+// `.account` and `.region` will resolve to the concrete values as above
+new MyStack(myStage, 'Stack1');
+new YourStack(myStage, 'Stack1');
+
+// Define an environment-agnostic stack:
+// `.account` and `.region` will resolve to `{ "Ref": "AWS::AccountId" }` and `{ "Ref": "AWS::Region" }` respectively.
+// which will only resolve to actual values by CloudFormation during deployment.
+new MyStack(app, 'Stack1');
+
+**`default`** - The environment of the containing `Stage` if available,
+otherwise create the stack will be environment-agnostic.
 
 ___
 
-###  externalId
+### `Readonly` externalId
 
 • **externalId**: *string*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[externalId](datadogintegrationconfig.md#externalid)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[externalId](datadogintegrationconfig.md#readonly-externalid)*
 
 *Defined in [lib/index.ts:23](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L23)*
 
@@ -135,11 +195,11 @@ https://app.datadoghq.com/account/settings#integrations/amazon-web-services)
 
 ___
 
-### `Optional` forwarderName
+### `Optional` `Readonly` forwarderName
 
 • **forwarderName**? : *undefined | string*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[forwarderName](datadogintegrationconfig.md#optional-forwardername)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[forwarderName](datadogintegrationconfig.md#optional-readonly-forwardername)*
 
 *Defined in [lib/index.ts:55](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L55)*
 
@@ -151,11 +211,11 @@ all the triggers will be lost.
 
 ___
 
-### `Optional` forwarderVersion
+### `Optional` `Readonly` forwarderVersion
 
 • **forwarderVersion**? : *undefined | string*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[forwarderVersion](datadogintegrationconfig.md#optional-forwarderversion)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[forwarderVersion](datadogintegrationconfig.md#optional-readonly-forwarderversion)*
 
 *Defined in [lib/index.ts:64](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L64)*
 
@@ -167,11 +227,11 @@ parameter as a version string, e.g., '3.9.0'
 
 ___
 
-### `Optional` iamRoleName
+### `Optional` `Readonly` iamRoleName
 
 • **iamRoleName**? : *undefined | string*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[iamRoleName](datadogintegrationconfig.md#optional-iamrolename)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[iamRoleName](datadogintegrationconfig.md#optional-readonly-iamrolename)*
 
 *Defined in [lib/index.ts:38](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L38)*
 
@@ -181,11 +241,11 @@ Customize the name of IAM role for Datadog AWS integration
 
 ___
 
-### `Optional` installDatadogPolicyMacro
+### `Optional` `Readonly` installDatadogPolicyMacro
 
 • **installDatadogPolicyMacro**? : *undefined | false | true*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[installDatadogPolicyMacro](datadogintegrationconfig.md#optional-installdatadogpolicymacro)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[installDatadogPolicyMacro](datadogintegrationconfig.md#optional-readonly-installdatadogpolicymacro)*
 
 *Defined in [lib/index.ts:72](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L72)*
 
@@ -196,11 +256,11 @@ to skip the installation of the DatadogPolicy Macro again
 
 ___
 
-### `Optional` logArchives
+### `Optional` `Readonly` logArchives
 
 • **logArchives**? : *Bucket[] | undefined*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[logArchives](datadogintegrationconfig.md#optional-logarchives)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[logArchives](datadogintegrationconfig.md#optional-readonly-logarchives)*
 
 *Defined in [lib/index.ts:79](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L79)*
 
@@ -210,11 +270,11 @@ https://docs.datadoghq.com/logs/archives/rehydrating/?tab=awss
 
 ___
 
-### `Optional` permissions
+### `Optional` `Readonly` permissions
 
 • **permissions**? : *[DatadogPermissionsLevel](../README.md#datadogpermissionslevel)*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[permissions](datadogintegrationconfig.md#optional-permissions)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[permissions](datadogintegrationconfig.md#optional-readonly-permissions)*
 
 *Defined in [lib/index.ts:46](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L46)*
 
@@ -225,11 +285,11 @@ Select "Core" to only grant Datadog read-only permissions (not recommended).
 
 ___
 
-### `Optional` site
+### `Optional` `Readonly` site
 
 • **site**? : *undefined | string*
 
-*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[site](datadogintegrationconfig.md#optional-site)*
+*Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[site](datadogintegrationconfig.md#optional-readonly-site)*
 
 *Defined in [lib/index.ts:31](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L31)*
 
@@ -240,13 +300,13 @@ For the Datadog EU site, set to datadoghq.eu
 
 ___
 
-### `Optional` stackName
+### `Optional` `Readonly` stackName
 
 • **stackName**? : *undefined | string*
 
-*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[stackName](datadogintegrationstackconfig.md#optional-stackname)*
+*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[stackName](datadogintegrationstackconfig.md#optional-readonly-stackname)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:24
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:85
 
 Name to deploy the stack with
 
@@ -254,14 +314,43 @@ Name to deploy the stack with
 
 ___
 
-### `Optional` tags
+### `Optional` `Readonly` synthesizer
+
+• **synthesizer**? : *IStackSynthesizer*
+
+*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[synthesizer](datadogintegrationstackconfig.md#optional-readonly-synthesizer)*
+
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:100
+
+Synthesis method to use while deploying this stack
+
+**`default`** - `DefaultStackSynthesizer` if the `@aws-cdk/core:newStyleStackSynthesis` feature flag
+is set, `LegacyStackSynthesizer` otherwise.
+
+___
+
+### `Optional` `Readonly` tags
 
 • **tags**? : *undefined | object*
 
-*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[tags](datadogintegrationstackconfig.md#optional-tags)*
+*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[tags](datadogintegrationstackconfig.md#optional-readonly-tags)*
 
-Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:30
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:91
 
 Stack tags that will be applied to all the taggable resources and the stack itself.
 
 **`default`** {}
+
+___
+
+### `Optional` `Readonly` terminationProtection
+
+• **terminationProtection**? : *undefined | false | true*
+
+*Inherited from [DatadogIntegrationStackConfig](datadogintegrationstackconfig.md).[terminationProtection](datadogintegrationstackconfig.md#optional-readonly-terminationprotection)*
+
+Defined in node_modules/@aws-cdk/core/lib/stack.d.ts:106
+
+Whether to enable termination protection for this stack.
+
+**`default`** false

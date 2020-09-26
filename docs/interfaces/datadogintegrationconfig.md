@@ -12,22 +12,22 @@
 
 ### Properties
 
-* [additionalForwarderParams](datadogintegrationconfig.md#optional-additionalforwarderparams)
-* [additionalIntegrationRoleParams](datadogintegrationconfig.md#optional-additionalintegrationroleparams)
-* [apiKey](datadogintegrationconfig.md#apikey)
-* [cloudTrails](datadogintegrationconfig.md#optional-cloudtrails)
-* [externalId](datadogintegrationconfig.md#externalid)
-* [forwarderName](datadogintegrationconfig.md#optional-forwardername)
-* [forwarderVersion](datadogintegrationconfig.md#optional-forwarderversion)
-* [iamRoleName](datadogintegrationconfig.md#optional-iamrolename)
-* [installDatadogPolicyMacro](datadogintegrationconfig.md#optional-installdatadogpolicymacro)
-* [logArchives](datadogintegrationconfig.md#optional-logarchives)
-* [permissions](datadogintegrationconfig.md#optional-permissions)
-* [site](datadogintegrationconfig.md#optional-site)
+* [additionalForwarderParams](datadogintegrationconfig.md#optional-readonly-additionalforwarderparams)
+* [additionalIntegrationRoleParams](datadogintegrationconfig.md#optional-readonly-additionalintegrationroleparams)
+* [apiKey](datadogintegrationconfig.md#readonly-apikey)
+* [cloudTrails](datadogintegrationconfig.md#optional-readonly-cloudtrails)
+* [externalId](datadogintegrationconfig.md#readonly-externalid)
+* [forwarderName](datadogintegrationconfig.md#optional-readonly-forwardername)
+* [forwarderVersion](datadogintegrationconfig.md#optional-readonly-forwarderversion)
+* [iamRoleName](datadogintegrationconfig.md#optional-readonly-iamrolename)
+* [installDatadogPolicyMacro](datadogintegrationconfig.md#optional-readonly-installdatadogpolicymacro)
+* [logArchives](datadogintegrationconfig.md#optional-readonly-logarchives)
+* [permissions](datadogintegrationconfig.md#optional-readonly-permissions)
+* [site](datadogintegrationconfig.md#optional-readonly-site)
 
 ## Properties
 
-### `Optional` additionalForwarderParams
+### `Optional` `Readonly` additionalForwarderParams
 
 • **additionalForwarderParams**? : *undefined | object*
 
@@ -42,7 +42,7 @@ for the latest parameters.
 
 ___
 
-### `Optional` additionalIntegrationRoleParams
+### `Optional` `Readonly` additionalIntegrationRoleParams
 
 • **additionalIntegrationRoleParams**? : *undefined | object*
 
@@ -57,7 +57,7 @@ for the latest parameters.
 
 ___
 
-###  apiKey
+### `Readonly` apiKey
 
 • **apiKey**: *ISecret*
 
@@ -67,7 +67,7 @@ API key for the Datadog account (find at https://app.datadoghq.com/account/setti
 
 ___
 
-### `Optional` cloudTrails
+### `Optional` `Readonly` cloudTrails
 
 • **cloudTrails**? : *Bucket[] | undefined*
 
@@ -79,7 +79,7 @@ https://docs.datadoghq.com/integrations/amazon_cloudtrail
 
 ___
 
-###  externalId
+### `Readonly` externalId
 
 • **externalId**: *string*
 
@@ -90,7 +90,7 @@ https://app.datadoghq.com/account/settings#integrations/amazon-web-services)
 
 ___
 
-### `Optional` forwarderName
+### `Optional` `Readonly` forwarderName
 
 • **forwarderName**? : *undefined | string*
 
@@ -104,7 +104,7 @@ all the triggers will be lost.
 
 ___
 
-### `Optional` forwarderVersion
+### `Optional` `Readonly` forwarderVersion
 
 • **forwarderVersion**? : *undefined | string*
 
@@ -118,7 +118,7 @@ parameter as a version string, e.g., '3.9.0'
 
 ___
 
-### `Optional` iamRoleName
+### `Optional` `Readonly` iamRoleName
 
 • **iamRoleName**? : *undefined | string*
 
@@ -130,7 +130,7 @@ Customize the name of IAM role for Datadog AWS integration
 
 ___
 
-### `Optional` installDatadogPolicyMacro
+### `Optional` `Readonly` installDatadogPolicyMacro
 
 • **installDatadogPolicyMacro**? : *undefined | false | true*
 
@@ -143,7 +143,7 @@ to skip the installation of the DatadogPolicy Macro again
 
 ___
 
-### `Optional` logArchives
+### `Optional` `Readonly` logArchives
 
 • **logArchives**? : *Bucket[] | undefined*
 
@@ -155,7 +155,7 @@ https://docs.datadoghq.com/logs/archives/rehydrating/?tab=awss
 
 ___
 
-### `Optional` permissions
+### `Optional` `Readonly` permissions
 
 • **permissions**? : *[DatadogPermissionsLevel](../README.md#datadogpermissionslevel)*
 
@@ -168,7 +168,7 @@ Select "Core" to only grant Datadog read-only permissions (not recommended).
 
 ___
 
-### `Optional` site
+### `Optional` `Readonly` site
 
 • **site**? : *undefined | string*
 
