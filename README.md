@@ -49,6 +49,13 @@ for more details on what's available.
 Additionally, a CDK `Construct` is exposed, should you want to add additional
 customizations vs. using the out-of-the-box `Stack`.
 
+## CDK Version Compatibility
+
+This package is expected to work with all recent versions of CDK
+v1. It has been tested with 1.55.0 so almost certainly works will all
+newer versions, and probably works with some older versions too, but
+is untested.
+
 ## How it Works
 
 This module uses the
