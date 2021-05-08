@@ -47,10 +47,10 @@
   "dependencies": {},
   "peerDependencies": {
     "constructs": "^3.0.4",
-    "@aws-cdk/core": "^1.0.0",
-    "@aws-cdk/aws-secretsmanager": "^1.0.0",
-    "@aws-cdk/aws-cloudformation": "^1.0.0",
-    "@aws-cdk/aws-s3": "^1.0.0"
+    "@aws-cdk/core": "^1.39.0",
+    "@aws-cdk/aws-secretsmanager": "^1.39.0",
+    "@aws-cdk/aws-cloudformation": "^1.39.0",
+    "@aws-cdk/aws-s3": "^1.39.0"
   },
   "husky": {
     "hooks": {
