@@ -24,3 +24,23 @@ jobs:
       - run: npm test
         env:
           CI: true
+
+  test-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Build source
+        uses: udondan/jsii-publish@v0.10.0
+        with:
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
+          BUILD_SOURCE: true
+
+      - name: Build packages
+        uses: udondan/jsii-publish@v0.10.0
+        with:
+          BUILD_PACKAGES: true
