@@ -150,7 +150,7 @@ export class DatadogIntegration extends cdk.Construct {
         parameters: Object.assign(
           {
             ExternalId: props.externalId,
-            Permissions: props.permissions.toString(),
+            BasePermissions: props.permissions.toString(),
             IAMRoleName: props.iamRoleName,
             LogArchives: bucketsToString(props.logArchives),
             CloudTrails: bucketsToString(props.cloudTrails),
