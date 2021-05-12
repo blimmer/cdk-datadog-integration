@@ -1,5 +1,53 @@
 # Changelog
 
+## [Unreleased](https://github.com/blimmer/cdk-datadog-integration/tree/HEAD)
+
+[Full Changelog](https://github.com/blimmer/cdk-datadog-integration/compare/v1.2.1...HEAD)
+
+**Merged pull requests:**
+
+- fix: correct datadog_integration_role.yml parameter to match new value
+  [\#32](https://github.com/blimmer/cdk-datadog-integration/pull/32)
+  ([blimmer](https://github.com/blimmer))
+- Bump handlebars from 4.7.6 to 4.7.7
+  [\#25](https://github.com/blimmer/cdk-datadog-integration/pull/25)
+  ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump highlight.js from 10.2.0 to 10.4.1
+  [\#21](https://github.com/blimmer/cdk-datadog-integration/pull/21)
+  ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [v1.2.1](https://github.com/blimmer/cdk-datadog-integration/tree/v1.2.1) (2021-05-08)
+
+[Full Changelog](https://github.com/blimmer/cdk-datadog-integration/compare/v1.2.0...v1.2.1)
+
+**Closed issues:**
+
+- Figure out what's wrong with the build
+  [\#29](https://github.com/blimmer/cdk-datadog-integration/issues/29)
+
+**Merged pull requests:**
+
+- fix: restore the build
+  [\#30](https://github.com/blimmer/cdk-datadog-integration/pull/30)
+  ([blimmer](https://github.com/blimmer))
+
+## [v1.2.0](https://github.com/blimmer/cdk-datadog-integration/tree/v1.2.0) (2021-05-06)
+
+[Full Changelog](https://github.com/blimmer/cdk-datadog-integration/compare/v1.1.1...v1.2.0)
+
+**Merged pull requests:**
+
+- chore: upgrade jest
+  [\#26](https://github.com/blimmer/cdk-datadog-integration/pull/26)
+  ([blimmer](https://github.com/blimmer))
+- Looser peerDependencies for CDK modules
+  [\#23](https://github.com/blimmer/cdk-datadog-integration/pull/23)
+  ([plumdog](https://github.com/plumdog))
+
+## [v1.1.1](https://github.com/blimmer/cdk-datadog-integration/tree/v1.1.1) (2020-09-26)
+
+[Full Changelog](https://github.com/blimmer/cdk-datadog-integration/compare/v1.1.0...v1.1.1)
+
 ## [v1.1.0](https://github.com/blimmer/cdk-datadog-integration/tree/v1.1.0) (2020-09-26)
 
 [Full Changelog](https://github.com/blimmer/cdk-datadog-integration/compare/v1.0.1...v1.1.0)
