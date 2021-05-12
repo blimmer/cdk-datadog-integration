@@ -48,7 +48,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Full",
+            BasePermissions: "Full",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: "",
             CloudTrails: "",
@@ -105,7 +105,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Full",
+            BasePermissions: "Full",
             IAMRoleName: "MyRoleName", // the sub-assert
             LogArchives: "",
             CloudTrails: "",
@@ -128,7 +128,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Core",
+            BasePermissions: "Core",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: "",
             CloudTrails: "",
@@ -152,7 +152,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Full",
+            BasePermissions: "Full",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: {
               "Fn::ImportValue": "Stack:ExportsOutputRefBucket83908E7781C90AC0", // the sub-assert
@@ -179,7 +179,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Full",
+            BasePermissions: "Full",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: {
               // the sub-assert
@@ -219,7 +219,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Full",
+            BasePermissions: "Full",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: "",
             CloudTrails: {
@@ -246,7 +246,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Full",
+            BasePermissions: "Full",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: "",
             CloudTrails: {
@@ -287,7 +287,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "Full",
+            BasePermissions: "Full",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: "",
             CloudTrails: "",
@@ -303,7 +303,7 @@ describe("DatadogIntegrationStack", () => {
         apiKey: secret,
         externalId: "not-a-real-id",
         additionalIntegrationRoleParams: {
-          Permissions: "SomeNewThing",
+          BasePermissions: "SomeNewThing",
         },
       });
 
@@ -313,7 +313,7 @@ describe("DatadogIntegrationStack", () => {
             "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
           Parameters: {
             ExternalId: "not-a-real-id",
-            Permissions: "SomeNewThing",
+            BasePermissions: "SomeNewThing",
             IAMRoleName: "DatadogIntegrationRole",
             LogArchives: "",
             CloudTrails: "",
