@@ -41,7 +41,7 @@
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[additionalForwarderParams](datadogintegrationconfig.md#optional-readonly-additionalforwarderparams)*
 
-*Defined in [lib/index.ts:96](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L96)*
+*Defined in [lib/index.ts:96](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L96)*
 
 Additional parameters to pass through to the underlying Forwarder CloudFormation
 template. Use this construct if you need to specify a template variable not
@@ -58,7 +58,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[additionalIntegrationRoleParams](datadogintegrationconfig.md#optional-readonly-additionalintegrationroleparams)*
 
-*Defined in [lib/index.ts:108](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L108)*
+*Defined in [lib/index.ts:108](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L108)*
 
 Additional parameters to pass through to the underlying Integration Role CloudFormation
 template. Use this construct if you need to specify a template variable not
@@ -75,7 +75,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[apiKey](datadogintegrationconfig.md#readonly-apikey)*
 
-*Defined in [lib/index.ts:17](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L17)*
+*Defined in [lib/index.ts:17](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L17)*
 
 API key for the Datadog account (find at https://app.datadoghq.com/account/settings#api)
 
@@ -87,7 +87,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[cloudTrails](datadogintegrationconfig.md#optional-readonly-cloudtrails)*
 
-*Defined in [lib/index.ts:86](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L86)*
+*Defined in [lib/index.ts:86](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L86)*
 
 S3 buckets for Datadog CloudTrail integration. Permissions will be automatically
 added to the Datadog integration IAM role.
@@ -188,7 +188,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[externalId](datadogintegrationconfig.md#readonly-externalid)*
 
-*Defined in [lib/index.ts:23](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L23)*
+*Defined in [lib/index.ts:23](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L23)*
 
 External ID for the Datadog role (generate at
 https://app.datadoghq.com/account/settings#integrations/amazon-web-services)
@@ -201,7 +201,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[forwarderName](datadogintegrationconfig.md#optional-readonly-forwardername)*
 
-*Defined in [lib/index.ts:55](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L55)*
+*Defined in [lib/index.ts:55](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L55)*
 
 The Datadog Forwarder Lambda function name. DO NOT change when updating an existing
 CloudFormation stack, otherwise the current forwarder function will be replaced and
@@ -217,7 +217,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[forwarderVersion](datadogintegrationconfig.md#optional-readonly-forwarderversion)*
 
-*Defined in [lib/index.ts:64](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L64)*
+*Defined in [lib/index.ts:64](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L64)*
 
 Specify a version of the forwarder to use. See
 https://github.com/DataDog/datadog-serverless-functions/releases. Pass this
@@ -233,7 +233,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[iamRoleName](datadogintegrationconfig.md#optional-readonly-iamrolename)*
 
-*Defined in [lib/index.ts:38](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L38)*
+*Defined in [lib/index.ts:38](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L38)*
 
 Customize the name of IAM role for Datadog AWS integration
 
@@ -247,7 +247,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[installDatadogPolicyMacro](datadogintegrationconfig.md#optional-readonly-installdatadogpolicymacro)*
 
-*Defined in [lib/index.ts:72](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L72)*
+*Defined in [lib/index.ts:72](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L72)*
 
 If you already deployed a stack using this template, set this parameter to false
 to skip the installation of the DatadogPolicy Macro again
@@ -262,7 +262,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[logArchives](datadogintegrationconfig.md#optional-readonly-logarchives)*
 
-*Defined in [lib/index.ts:79](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L79)*
+*Defined in [lib/index.ts:79](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L79)*
 
 S3 paths to store log archives for log rehydration.
 Permissions will be automatically added to the Datadog integration IAM role.
@@ -276,7 +276,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[permissions](datadogintegrationconfig.md#optional-readonly-permissions)*
 
-*Defined in [lib/index.ts:46](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L46)*
+*Defined in [lib/index.ts:46](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L46)*
 
 Customize the permission level for the Datadog IAM role.
 Select "Core" to only grant Datadog read-only permissions (not recommended).
@@ -291,7 +291,7 @@ ___
 
 *Inherited from [DatadogIntegrationConfig](datadogintegrationconfig.md).[site](datadogintegrationconfig.md#optional-readonly-site)*
 
-*Defined in [lib/index.ts:31](https://github.com/blimmer/cdk-datadog-integration/blob/master/lib/index.ts#L31)*
+*Defined in [lib/index.ts:31](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L31)*
 
 Define your Datadog Site to send data to.
 For the Datadog EU site, set to datadoghq.eu
