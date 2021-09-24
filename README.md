@@ -51,10 +51,9 @@ customizations vs. using the out-of-the-box `Stack`.
 
 ## CDK Version Compatibility
 
-This package is expected to work with all recent versions of CDK
-v1. It has been tested with 1.55.0 so almost certainly works will all
-newer versions, and probably works with some older versions too, but
-is untested.
+This package is expected to work with all recent versions of CDK v1. It has been
+tested with 1.55.0 so almost certainly works will all newer versions, and
+probably works with some older versions too, but is untested.
 
 ## How it Works
 
@@ -69,9 +68,9 @@ integration works exactly as Datadog intends.
 
 This package is created and maintained by
 [Ben Limmer](https://www.linkedin.com/in/blimmer/), a
-[freelance architect and consultant](https://benlimmer.com/consulting/). I love
+[freelance architect and consultant](https://benlimmer.com/freelance/). I love
 helping businesses of all sizes solve their hardest technology problems. Let's
-[connect](https://benlimmer.com/consulting/contact/) if I can be of help!
+[connect](https://benlimmer.com/freelance/contact/) if I can be of help!
 
 ## Contributing
 
