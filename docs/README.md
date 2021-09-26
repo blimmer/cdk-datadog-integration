@@ -51,7 +51,7 @@ ___
 
 Ƭ **DatadogPermissionsLevel**: *"Full" | "Core"*
 
-*Defined in [lib/index.ts:12](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L12)*
+*Defined in [lib/index.ts:11](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L11)*
 
 ## Variables
 

@@ -21,22 +21,36 @@ using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
 
    ```ts
    import * as cdk from "@aws-cdk/core";
+   import { MonitoringInfrastructureStack } from "../lib/monitoring-infrastructure-stack";
+
+   const app = new cdk.App();
+   new MonitoringInfrastructureStack(app, "MonitoringInfrastructure");
+   ```
+
+   ```ts
+   import * as cdk from "@aws-cdk/core";
    import * as secrets from "@aws-cdk/aws-secretsmanager";
    import { DatadogIntegrationStack } from "cdk-datadog-integration";
 
-   const app = new cdk.App();
-   new DatadogIntegrationStack(app, "DatadogIntegration", {
-     // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services
-     externalId: "",
+   export class MonitoringInfrastructureStack extends cdk.Stack {
+     constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+       super(scope, id, props);
 
-     // Create or lookup a `Secret` that contains your Datadog API Key
-     // Get your API key here: https://app.datadoghq.com/account/settings#api
-     apiKey: secrets.Secret.fromSecretArn(
-       app,
-       "DatadogApiKey",
-       "arn:aws:secretsmanager:<your region>:<your account>:secret:<your secret name>"
-     ),
-   });
+       const datadog = new DatadogIntegrationStack(this, "Datadog", {
+         // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services
+         externalId: "",
+
+         // Create or lookup a `Secret` that contains your Datadog API Key
+         // See https://docs.aws.amazon.com/cdk/api/latest/docs/aws-secretsmanager-readme.html for details on Secrets in CDK
+         // Get your API key here: https://app.datadoghq.com/account/settings#api
+         apiKey: secrets.Secret.fromSecretNameV2(
+           this,
+           "DatadogApiKey",
+           "<your secret name>"
+         ),
+       });
+     }
+   }
    ```
 
 ## Configuration

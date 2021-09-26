@@ -81,7 +81,7 @@
 
 *Overrides void*
 
-*Defined in [lib/index.ts:193](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L193)*
+*Defined in [lib/index.ts:192](https://github.com/blimmer/cdk-datadog-integration/blob/main/lib/index.ts#L192)*
 
 **Parameters:**
 
