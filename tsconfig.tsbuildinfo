@@ -1126,7 +1126,7 @@
         "affectsGlobalScope": false
       },
       "./lib/index.ts": {
-        "version": "183a8dbac642f406b3781c121b9794033d86ccedc3cd81a5130b1cf83c71a420",
+        "version": "bd3fe6e276b29c46347717a2d46cde51f08f4964813726258a18f51f1687b6fa",
         "affectsGlobalScope": false
       },
       "./lib/config.ts": {
@@ -1425,7 +1425,7 @@
         "version": "f5638f7c2f12a9a1a57b5c41b3c1ea7db3876c003bab68e6a57afd6bcc169af0",
         "affectsGlobalScope": false
       },
-      "./node_modules/jest-diff/build/cleanupSemantic.d.ts": {
+      "./node_modules/jest-diff/build/cleanupsemantic.d.ts": {
         "version": "d8aab31ba8e618cc3eea10b0945de81cb93b7e8150a013a482332263b9305322",
         "affectsGlobalScope": false
       },
@@ -1433,11 +1433,11 @@
         "version": "69da61a7b5093dac77fa3bec8be95dcf9a74c95a0e9161edb98bb24e30e439d2",
         "affectsGlobalScope": false
       },
-      "./node_modules/jest-diff/build/diffLines.d.ts": {
+      "./node_modules/jest-diff/build/difflines.d.ts": {
         "version": "561eca7a381b96d6ccac6e4061e6d2ae53f5bc44203f3fd9f5b26864c32ae6e9",
         "affectsGlobalScope": false
       },
-      "./node_modules/jest-diff/build/printDiffs.d.ts": {
+      "./node_modules/jest-diff/build/printdiffs.d.ts": {
         "version": "62ea38627e3ebab429f7616812a9394d327c2bc271003dfba985de9b4137369f",
         "affectsGlobalScope": false
       },
@@ -2980,18 +2980,18 @@
         "./node_modules/constructs/lib/construct.d.ts",
         "./node_modules/constructs/lib/metadata.d.ts"
       ],
-      "./node_modules/jest-diff/build/diffLines.d.ts": [
-        "./node_modules/jest-diff/build/cleanupSemantic.d.ts",
+      "./node_modules/jest-diff/build/difflines.d.ts": [
+        "./node_modules/jest-diff/build/cleanupsemantic.d.ts",
         "./node_modules/jest-diff/build/types.d.ts"
       ],
       "./node_modules/jest-diff/build/index.d.ts": [
-        "./node_modules/jest-diff/build/cleanupSemantic.d.ts",
-        "./node_modules/jest-diff/build/diffLines.d.ts",
-        "./node_modules/jest-diff/build/printDiffs.d.ts",
+        "./node_modules/jest-diff/build/cleanupsemantic.d.ts",
+        "./node_modules/jest-diff/build/difflines.d.ts",
+        "./node_modules/jest-diff/build/printdiffs.d.ts",
         "./node_modules/jest-diff/build/types.d.ts"
       ],
-      "./node_modules/jest-diff/build/printDiffs.d.ts": [
-        "./node_modules/jest-diff/build/cleanupSemantic.d.ts",
+      "./node_modules/jest-diff/build/printdiffs.d.ts": [
+        "./node_modules/jest-diff/build/cleanupsemantic.d.ts",
         "./node_modules/jest-diff/build/types.d.ts"
       ],
       "./node_modules/pretty-format/build/index.d.ts": [

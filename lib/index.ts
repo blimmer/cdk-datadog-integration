@@ -1,4 +1,3 @@
-import "source-map-support/register";
 import * as cdk from "@aws-cdk/core";
 import * as cfn from "@aws-cdk/aws-cloudformation";
 import * as secrets from "@aws-cdk/aws-secretsmanager";
