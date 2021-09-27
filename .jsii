@@ -688,7 +688,7 @@
       "initializer": {
         "locationInModule": {
           "filename": "lib/index.ts",
-          "line": 116
+          "line": 115
         },
         "parameters": [
           {
@@ -714,7 +714,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 113
+        "line": 112
       },
       "name": "DatadogIntegration"
     },
@@ -725,7 +725,7 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 13
+        "line": 12
       },
       "name": "DatadogIntegrationConfig",
       "properties": [
@@ -737,7 +737,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 17
+            "line": 16
           },
           "name": "apiKey",
           "type": {
@@ -752,7 +752,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 23
+            "line": 22
           },
           "name": "externalId",
           "type": {
@@ -768,7 +768,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 96
+            "line": 95
           },
           "name": "additionalForwarderParams",
           "optional": true,
@@ -790,7 +790,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 108
+            "line": 107
           },
           "name": "additionalIntegrationRoleParams",
           "optional": true,
@@ -812,7 +812,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 86
+            "line": 85
           },
           "name": "cloudTrails",
           "optional": true,
@@ -835,7 +835,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 55
+            "line": 54
           },
           "name": "forwarderName",
           "optional": true,
@@ -853,7 +853,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 64
+            "line": 63
           },
           "name": "forwarderVersion",
           "optional": true,
@@ -870,7 +870,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 38
+            "line": 37
           },
           "name": "iamRoleName",
           "optional": true,
@@ -887,7 +887,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 72
+            "line": 71
           },
           "name": "installDatadogPolicyMacro",
           "optional": true,
@@ -904,7 +904,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 79
+            "line": 78
           },
           "name": "logArchives",
           "optional": true,
@@ -927,7 +927,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 46
+            "line": 45
           },
           "name": "permissions",
           "optional": true,
@@ -945,7 +945,7 @@
           "immutable": true,
           "locationInModule": {
             "filename": "lib/index.ts",
-            "line": 31
+            "line": 30
           },
           "name": "site",
           "optional": true,
@@ -962,7 +962,7 @@
       "initializer": {
         "locationInModule": {
           "filename": "lib/index.ts",
-          "line": 194
+          "line": 193
         },
         "parameters": [
           {
@@ -988,7 +988,7 @@
       "kind": "class",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 193
+        "line": 192
       },
       "name": "DatadogIntegrationStack"
     },
@@ -1003,11 +1003,11 @@
       "kind": "interface",
       "locationInModule": {
         "filename": "lib/index.ts",
-        "line": 189
+        "line": 188
       },
       "name": "DatadogIntegrationStackConfig"
     }
   },
   "version": "1.2.2",
-  "fingerprint": "SgpzGUKtiuGGPXLeH/01OBT2Z1oD+WxvGAIyQDh24YE="
+  "fingerprint": "9LAXwA6IYyXC56oVIHQsdAk1RyBN6MfpA8E+Z2/afrA="
 }
