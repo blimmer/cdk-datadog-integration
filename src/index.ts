@@ -1,14 +1,15 @@
-import * as cdk from "@aws-cdk/core";
-import * as cfn from "@aws-cdk/aws-cloudformation";
-import * as secrets from "@aws-cdk/aws-secretsmanager";
-import * as s3 from "@aws-cdk/aws-s3";
+import * as cfn from 'aws-cdk-lib/aws-cloudformation';
+import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as secrets from 'aws-cdk-lib/aws-secretsmanager';
+import * as cdk from 'aws-cdk-lib/core';
+import { Construct } from 'constructs';
 import {
   applyDefaultsToConfig,
   DatadogIntegrationConfigWithDefaults,
-} from "./config";
-import { bucketsToString } from "./util";
+} from './config';
+import { bucketsToString } from './util';
 
-type DatadogPermissionsLevel = "Full" | "Core";
+type DatadogPermissionsLevel = 'Full' | 'Core';
 export interface DatadogIntegrationConfig {
   /**
    * API key for the Datadog account (find at https://app.datadoghq.com/account/settings#api)
@@ -109,13 +110,13 @@ export interface DatadogIntegrationConfig {
   };
 }
 
-export class DatadogIntegration extends cdk.Construct {
-  private DATADOG_AWS_ACCOUNT_ID = "464622532012"; // DO NOT CHANGE!
+export class DatadogIntegration extends Construct {
+  private DATADOG_AWS_ACCOUNT_ID = '464622532012'; // DO NOT CHANGE!
 
   constructor(
-    scope: cdk.Construct,
+    scope: Construct,
     id: string,
-    props: DatadogIntegrationConfig
+    props: DatadogIntegrationConfig,
   ) {
     super(scope, id);
     const propsWithDefaults = applyDefaultsToConfig(props);
@@ -130,22 +131,22 @@ export class DatadogIntegration extends cdk.Construct {
   }
 
   private createPolicyMacroStack(): cfn.CfnStack {
-    return new cfn.CfnStack(this, "PolicyMacroStack", {
+    return new cfn.CfnStack(this, 'PolicyMacroStack', {
       templateUrl:
-        "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_policy_macro.yaml",
+        'https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_policy_macro.yaml',
     });
   }
 
   private createIntegrationRole(
     props: DatadogIntegrationConfigWithDefaults,
-    policyMacroStack?: cfn.CfnStack
+    policyMacroStack?: cfn.CfnStack,
   ): cfn.CfnStack {
     const integrationRoleStack = new cfn.CfnStack(
       this,
-      "IntegrationRoleStack",
+      'IntegrationRoleStack',
       {
         templateUrl:
-          "https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml",
+          'https://datadog-cloudformation-template.s3.amazonaws.com/aws/datadog_integration_role.yaml',
         parameters: Object.assign(
           {
             ExternalId: props.externalId,
@@ -155,9 +156,9 @@ export class DatadogIntegration extends cdk.Construct {
             CloudTrails: bucketsToString(props.cloudTrails),
             DdAWSAccountId: this.DATADOG_AWS_ACCOUNT_ID,
           },
-          { ...props.additionalIntegrationRoleParams }
+          { ...props.additionalIntegrationRoleParams },
         ),
-      }
+      },
     );
 
     if (policyMacroStack) {
@@ -168,18 +169,18 @@ export class DatadogIntegration extends cdk.Construct {
   }
 
   private createForwarderStack(
-    props: DatadogIntegrationConfigWithDefaults
+    props: DatadogIntegrationConfigWithDefaults,
   ): cfn.CfnStack {
-    return new cfn.CfnStack(this, "ForwarderStack", {
+    return new cfn.CfnStack(this, 'ForwarderStack', {
       templateUrl: `https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/${props.forwarderVersion}.yaml`,
       parameters: Object.assign(
         {
-          DdApiKey: "USE_ARN",
+          DdApiKey: 'USE_ARN',
           DdApiKeySecretArn: props.apiKey.secretArn,
           DdSite: props.site,
           FunctionName: props.forwarderName,
         },
-        { ...props.additionalForwarderParams }
+        { ...props.additionalForwarderParams },
       ),
     });
   }
@@ -187,13 +188,13 @@ export class DatadogIntegration extends cdk.Construct {
 
 export interface DatadogIntegrationStackConfig
   extends DatadogIntegrationConfig,
-    cdk.StackProps {}
+  cdk.StackProps {}
 
 export class DatadogIntegrationStack extends cdk.Stack {
   constructor(
-    scope: cdk.Construct,
+    scope: Construct,
     id: string,
-    props: DatadogIntegrationStackConfig
+    props: DatadogIntegrationStackConfig,
   ) {
     super(scope, id, props);
     new DatadogIntegration(this, id, props);
