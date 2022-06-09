@@ -20,7 +20,7 @@ using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
 1. Import the stack and pass the required parameters.
 
    ```ts
-   import * as cdk from "@aws-cdk/core";
+   import * as cdk from "aws-cdk-lib";
    import { MonitoringInfrastructureStack } from "../lib/monitoring-infrastructure-stack";
 
    const app = new cdk.App();
@@ -28,8 +28,8 @@ using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
    ```
 
    ```ts
-   import * as cdk from "@aws-cdk/core";
-   import * as secrets from "@aws-cdk/aws-secretsmanager";
+   import * as cdk from "aws-cdk-lib";
+   import * as secrets from "aws-cdk-lib/aws-secretsmanager";
    import { DatadogIntegrationStack } from "cdk-datadog-integration";
 
    export class MonitoringInfrastructureStack extends cdk.Stack {
@@ -65,16 +65,19 @@ customizations vs. using the out-of-the-box `Stack`.
 
 ## CDK Version Compatibility
 
-This package is expected to work with all recent versions of CDK v1. It has been
-tested with 1.55.0 so almost certainly works will all newer versions, and
+This package is expected to work with all recent versions of CDK v2. It has been
+tested with 2.1.0 so almost certainly works will all newer versions, and
 probably works with some older versions too, but is untested.
+
+If you're still on CDK v1, you can use `cdk-datadog-integration@1`, but this
+version is unmaintained. Please upgrade to CDKv2.
 
 ## How it Works
 
 This module uses the
-[`CfnStack` CDK Construct](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnStack.html)
+[`CfnStack` CDK Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudformation.CfnStack.html)
 to import the three CloudFormation stacks referenced by the
-[main Datadog CloudFormation template](https://docs.aws.amazon.com/cdk/api/latest/docs/@aws-cdk_aws-cloudformation.CfnStack.html).
+[main Datadog CloudFormation template](https://github.com/DataDog/cloudformation-template/tree/master/aws).
 By referencing the Datadog-provided templates, you can be confident that the
 integration works exactly as Datadog intends.
 
@@ -92,4 +95,4 @@ PRs are welcome!
 
 ### Releasing
 
-To release, use `npm version` and push the tag.
+To release, merge your PR to `main`.
