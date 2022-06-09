@@ -26,11 +26,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
     packageId: 'BenLimmer.CdkDatadogIntegration',
   },
 
-  // TODO: It looks like we need a username/password for twine via the API key I was using before.
-  // publishToPypi: {
-  //   distName: 'cdk-datadog-integration',
-  //   module: 'cdk_datadog_integration',
-  // },
+  publishToPypi: {
+    twineUsernameSecret: 'TWINE_USERNAME', // this resolves to __token__ to use token auth
+    twinePasswordSecret: 'PYPY_TOKEN',
+    distName: 'cdk-datadog-integration',
+    module: 'cdk_datadog_integration',
+  },
 
   // TODO: it looks like this publishes to sonatype, not GitHub, so would need to set that up.
   // publishToMaven: {
