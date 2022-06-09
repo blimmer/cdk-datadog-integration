@@ -1,7 +1,7 @@
+import * as cdk from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as secrets from 'aws-cdk-lib/aws-secretsmanager';
-import * as cdk from 'aws-cdk-lib/core';
 import { DatadogIntegrationStack } from '../src/index';
 
 describe('DatadogIntegrationStack', () => {

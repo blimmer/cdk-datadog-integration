@@ -1,7 +1,7 @@
+import * as cdk from 'aws-cdk-lib';
 import * as cfn from 'aws-cdk-lib/aws-cloudformation';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as secrets from 'aws-cdk-lib/aws-secretsmanager';
-import * as cdk from 'aws-cdk-lib/core';
 import { Construct } from 'constructs';
 import {
   applyDefaultsToConfig,
