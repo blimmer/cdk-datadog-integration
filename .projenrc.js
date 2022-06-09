@@ -33,12 +33,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
     module: 'cdk_datadog_integration',
   },
 
-  // TODO: it looks like this publishes to sonatype, not GitHub, so would need to set that up.
-  // publishToMaven: {
-  //   javaPackage: 'com.benlimmer.cdkdatadogintegration',
-  //   mavenGroupId: 'com.benlimmer',
-  //   mavenArtifactId: 'cdk-datadog-integration',
-  // },
+  publishToMaven: {
+    mavenRepositoryUrl: 'https://maven.pkg.github.com',
+    javaPackage: 'com.benlimmer.cdkdatadogintegration',
+    mavenGroupId: 'com.benlimmer',
+    mavenArtifactId: 'cdk-datadog-integration',
+  },
 });
 
 project.synth();

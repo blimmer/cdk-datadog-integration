@@ -17,7 +17,9 @@
     "package": "npx projen package",
     "package-all": "npx projen package-all",
     "package:dotnet": "npx projen package:dotnet",
+    "package:java": "npx projen package:java",
     "package:js": "npx projen package:js",
+    "package:python": "npx projen package:python",
     "post-compile": "npx projen post-compile",
     "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
@@ -117,6 +119,17 @@
   "jsii": {
     "outdir": "dist",
     "targets": {
+      "java": {
+        "package": "com.benlimmer.cdkdatadogintegration",
+        "maven": {
+          "groupId": "com.benlimmer",
+          "artifactId": "cdk-datadog-integration"
+        }
+      },
+      "python": {
+        "distName": "cdk-datadog-integration",
+        "module": "cdk_datadog_integration"
+      },
       "dotnet": {
         "namespace": "BenLimmer.CdkDatadogIntegration",
         "packageId": "BenLimmer.CdkDatadogIntegration"
