@@ -28,13 +28,13 @@ const project = new awscdk.AwsCdkConstructLibrary({
 
   publishToPypi: {
     twineUsernameSecret: 'TWINE_USERNAME', // this resolves to __token__ to use token auth
-    twinePasswordSecret: 'PYPY_TOKEN',
+    twinePasswordSecret: 'PYPI_TOKEN',
     distName: 'cdk-datadog-integration',
     module: 'cdk_datadog_integration',
   },
 
   publishToMaven: {
-    mavenRepositoryUrl: 'https://maven.pkg.github.com',
+    mavenRepositoryUrl: 'https://maven.pkg.github.com/${{ github.repository }}',
     javaPackage: 'com.benlimmer.cdkdatadogintegration',
     mavenGroupId: 'com.benlimmer',
     mavenArtifactId: 'cdk-datadog-integration',

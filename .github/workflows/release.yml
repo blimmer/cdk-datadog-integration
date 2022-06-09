@@ -128,7 +128,7 @@ jobs:
         run: npx -p publib@latest publib-maven
         env:
           MAVEN_SERVER_ID: github
-          MAVEN_REPOSITORY_URL: https://maven.pkg.github.com
+          MAVEN_REPOSITORY_URL: https://maven.pkg.github.com/${{ github.repository }}
           MAVEN_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           MAVEN_USERNAME: ${{ github.actor }}
   release_pypi:
@@ -162,7 +162,7 @@ jobs:
         run: npx -p publib@latest publib-pypi
         env:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
-          TWINE_PASSWORD: ${{ secrets.PYPY_TOKEN }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
   release_nuget:
     name: Publish to NuGet Gallery
     needs: release
