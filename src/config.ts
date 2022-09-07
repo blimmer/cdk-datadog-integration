@@ -19,6 +19,7 @@ const CONFIG_DEFAULTS: DatadogIntegrationDefaults = Object.freeze({
   forwarderName: 'DatadogForwarder',
   forwarderVersion: 'latest',
   installDatadogPolicyMacro: true,
+  installDatadogForwarder: true,
 });
 
 export type DatadogIntegrationConfigWithDefaults = DatadogIntegrationConfig &
