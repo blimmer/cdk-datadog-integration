@@ -1,4 +1,5 @@
 const { awscdk } = require('projen');
+const { ReleaseTrigger } = require('projen/lib/release');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Ben Limmer',
   authorAddress: 'https://benlimmer.com/freelance',
@@ -18,6 +19,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   docgen: true,
 
   release: true,
+  releaseTrigger: ReleaseTrigger.manual(),
   releaseToNpm: true,
   npmTokenSecret: 'NPM_TOKEN',
   publishToNuget: {
