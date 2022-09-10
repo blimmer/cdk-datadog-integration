@@ -30,13 +30,13 @@ using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
    ```ts
    import * as cdk from "aws-cdk-lib";
    import * as secrets from "aws-cdk-lib/aws-secretsmanager";
-   import { DatadogIntegrationStack } from "cdk-datadog-integration";
+   import { DatadogIntegration } from "cdk-datadog-integration";
 
    export class MonitoringInfrastructureStack extends cdk.Stack {
      constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
        super(scope, id, props);
 
-       const datadog = new DatadogIntegrationStack(this, "Datadog", {
+       const datadog = new DatadogIntegration(this, "Datadog", {
          // Generate an ID here: https://app.datadoghq.com/account/settings#integrations/amazon-web-services
          externalId: "",
 
