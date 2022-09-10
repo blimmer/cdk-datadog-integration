@@ -57,7 +57,7 @@ using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
 
 Use `DatadogIntegrationConfig` to set additional configuration parameters. Check
 out
-[docs](https://github.com/blimmer/cdk-datadog-integration/blob/master/docs/interfaces/datadogintegrationconfig.md)
+[docs](/API.md#cdk-datadog-integration.DatadogIntegrationConfig)
 for more details on what's available.
 
 Additionally, a CDK `Construct` is exposed, should you want to add additional
