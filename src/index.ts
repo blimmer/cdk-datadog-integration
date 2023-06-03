@@ -162,7 +162,7 @@ export class DatadogIntegration extends Construct {
     );
 
     if (policyMacroStack) {
-      integrationRoleStack.addDependsOn(policyMacroStack);
+      integrationRoleStack.addDependency(policyMacroStack);
     }
 
     return integrationRoleStack;
