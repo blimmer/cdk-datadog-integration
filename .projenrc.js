@@ -17,6 +17,8 @@ const project = new awscdk.AwsCdkConstructLibrary({
   ],
 
   docgen: true,
+  autoApproveUpgrades: true,
+  autoApproveOptions: { allowedUsernames: ['blimmer-bot'] },
 
   release: true,
   releaseToNpm: true,
