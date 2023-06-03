@@ -19,7 +19,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   docgen: true,
 
   release: true,
-  releaseTrigger: ReleaseTrigger.manual(),
   releaseToNpm: true,
   npmTokenSecret: 'NPM_TOKEN',
   publishToNuget: {
