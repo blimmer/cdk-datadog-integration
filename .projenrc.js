@@ -3,7 +3,7 @@ const { ReleaseTrigger } = require('projen/lib/release');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Ben Limmer',
   authorAddress: 'https://benlimmer.com/freelance',
-  cdkVersion: '2.1.0',
+  cdkVersion: '2.56.0',
   defaultReleaseBranch: 'main',
   name: 'cdk-datadog-integration',
   repositoryUrl: 'https://github.com/blimmer/cdk-datadog-integration.git',
