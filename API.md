@@ -5,6 +5,16 @@ creates nested stacks based on the official
 [Datadog Cloudformation templates](https://github.com/DataDog/cloudformation-template/blob/master/aws/main.yaml)
 using [Amazon Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/).
 
+## Warning
+
+:warning: This construct does not use the newest Datadog CloudFormation template because sensitive
+parameters must be hard-coded. See https://github.com/DataDog/cloudformation-template/issues/68 for an upstream
+feature request. :warning:
+
+This construct will still work, but it cannot be updated to the latest integration template until the upstream
+issue is fixed. Please add a +1 to https://github.com/DataDog/cloudformation-template/issues/68 to help
+prioritize it.
+
 ## Basic Usage
 
 1. Install the package
