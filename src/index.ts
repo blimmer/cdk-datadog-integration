@@ -7,6 +7,7 @@ import {
   applyDefaultsToConfig,
   DatadogIntegrationConfigWithDefaults,
 } from './config';
+import * as forwarder from './forwarder';
 import { bucketsToString } from './util';
 
 type DatadogPermissionsLevel = 'Full' | 'Core';
@@ -64,6 +65,14 @@ export interface DatadogIntegrationConfig {
   readonly forwarderVersion?: string;
 
   /**
+   * If you already deployed a stack using this template, or you want to deploy the ForwarderStack separately, set this parameter to false
+   * to skip the installation of the DatadogForwarder again
+   *
+   * @default true
+   */
+  readonly installDatadogForwarder?: boolean;
+
+  /**
    * If you already deployed a stack using this template, set this parameter to false
    * to skip the installation of the DatadogPolicy Macro again
    *
@@ -93,9 +102,7 @@ export interface DatadogIntegrationConfig {
    * See https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/latest.yaml
    * for the latest parameters.
    */
-  readonly additionalForwarderParams?: {
-    [key: string]: string;
-  };
+  readonly additionalForwarderParams?: forwarder.ForwarderTemplateParameters;
 
   /**
    * Additional parameters to pass through to the underlying Integration Role CloudFormation
@@ -127,7 +134,10 @@ export class DatadogIntegration extends Construct {
     }
 
     this.createIntegrationRole(propsWithDefaults, policyMacroStack);
-    this.createForwarderStack(propsWithDefaults);
+
+    if (propsWithDefaults.installDatadogForwarder) {
+      this.createForwarderStack(propsWithDefaults);
+    }
   }
 
   private createPolicyMacroStack(): cfn.CfnStack {
@@ -171,18 +181,17 @@ export class DatadogIntegration extends Construct {
   private createForwarderStack(
     props: DatadogIntegrationConfigWithDefaults,
   ): cfn.CfnStack {
-    return new cfn.CfnStack(this, 'ForwarderStack', {
-      templateUrl: `https://datadog-cloudformation-template.s3.amazonaws.com/aws/forwarder/${props.forwarderVersion}.yaml`,
-      parameters: Object.assign(
-        {
-          DdApiKey: 'USE_ARN',
-          DdApiKeySecretArn: props.apiKey.secretArn,
-          DdSite: props.site,
-          FunctionName: props.forwarderName,
-        },
-        { ...props.additionalForwarderParams },
-      ),
-    });
+
+    return new forwarder.ForwarderStack(this, 'ForwarderStack', {
+      forwarderVersion: props.forwarderVersion,
+      templateParameters: {
+        DdApiKey: 'USE_ARN',
+        DdApiKeySecretArn: props.apiKey.secretArn,
+        DdSite: props.site,
+        FunctionName: props.forwarderName,
+        ...props.additionalForwarderParams,
+      },
+    } );
   }
 }
 
@@ -200,3 +209,5 @@ export class DatadogIntegrationStack extends cdk.Stack {
     new DatadogIntegration(this, id, props);
   }
 }
+
+

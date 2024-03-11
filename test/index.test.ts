@@ -407,7 +407,7 @@ describe('DatadogIntegrationStack', () => {
         apiKey: secret,
         externalId: 'not-a-real-id',
         additionalForwarderParams: {
-          Foo: 'bar',
+          FunctionName: 'bar',
         },
       });
 
@@ -421,8 +421,7 @@ describe('DatadogIntegrationStack', () => {
             'Fn::ImportValue': 'Stack:ExportsOutputRefSecretA720EF052D953DED',
           },
           DdSite: 'datadoghq.com',
-          FunctionName: 'DatadogForwarder',
-          Foo: 'bar', // the sub-assert
+          FunctionName: 'bar',
         },
       });
     });
